@@ -11,7 +11,7 @@ const PARALLAX_FACTOR = 0.5;
 const BACKGROUND_SHIFT = 0.1;
 const INITIAL_BACKGROUND_POSITION = 20;
 
-// Image data with better descriptive alt texts
+// Image data with descriptive alt texts
 const IMAGES = {
   horse: { 
     src: "/horse.png", 
@@ -22,7 +22,7 @@ const IMAGES = {
   cliff: { 
     src: "/cliff.webp", 
     width: 480, 
-    height: 480,
+    height: 800,
     alt: "Mountain cliff landscape" 
   },
   trees: { 
@@ -52,7 +52,8 @@ const fadeInUp = {
 interface HeroSectionProps {
   scrollY: number;
 }
-const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) =>(  <motion.div
+const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) =>(  
+  <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.8 }}
@@ -65,7 +66,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) =>(  <motion.div
         backgroundPosition: `center ${INITIAL_BACKGROUND_POSITION - scrollY * BACKGROUND_SHIFT}%`,
         transform: `translateY(${scrollY * PARALLAX_FACTOR}px)`,
       }}
-    />
+    >
+      {/* Overlay */}
+      <div 
+        className="absolute inset-0 bg-black bg-opacity-55" 
+        style={{
+          backdropFilter: 'blur(4px)' 
+        }}
+      />
+    </div>
+    
     <motion.div 
       variants={fadeInUp}
       initial="hidden"
@@ -73,12 +83,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) =>(  <motion.div
       transition={{ delay: 0.3 }}
       className="relative px-6 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-10 max-w-[750px]"
     >
-      <h1 className="text-3xl md:text-[50px] text-white font-semibold leading-tight">
-        OPSC builds the future of
+      <h1 className="text-3xl md:text-[45px] text-white font-semibold leading-tight">
+        OPSC VIT, Chennai was created to spread awareness of 
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500 animate-gradient">
-          {" "}open source{" "}
+          {" "}Free and Open Source Software (FOSS).{" "}
         </span>
-        one line at a time.
       </h1>
     </motion.div>
   </motion.div>
@@ -93,13 +102,13 @@ const DecorativeImages = () => (
       transition={{ duration: 0.8 }}
     >
       <Image
-        {...IMAGES.horse}
-        className="absolute right-55 top-40 transform hover:scale-105 transition-transform duration-300"
+        {...IMAGES.cliff}
+        className="transform duration-300"
         priority
       />
       <Image
-        {...IMAGES.cliff}
-        className="transform hover:scale-105 transition-transform duration-300"
+        {...IMAGES.horse}
+        className="absolute right-55 top-40 duration-300"
         priority
       />
     </motion.div>
@@ -134,26 +143,26 @@ const AboutSection = () => (
     whileInView="visible"
     viewport={{ once: true }}
     transition={{ duration: 0.8 }}
-    className="relative text-white py-16  backdrop-blur-sm"
+    className="relative text-white py-16 backdrop-blur-sm"
   >
     <div className="max-w-3xl mx-auto px-6">
       <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
         About OPSC
       </h2>
       <p className="mb-4 text-lg leading-relaxed">
-        The Open Source Programming Club (OPSC) is dedicated to promoting open-source 
-        software development and collaboration among students. We aim to empower 
-        members through knowledge sharing and hands-on projects.
+        The Open Source Programming Club (OSPC) at VIT is a student-driven initiative aimed at fostering a culture of open-source development. Our mission is to empower members with practical skills, community-driven projects, and insights into collaborative software development.
       </p>
       <p className="mb-8 text-lg leading-relaxed">
-        Join us in our mission to innovate and contribute to the open-source community!
-      </p>
+  We believe in the power of open-source to bring about positive change and innovation. Whether you&apos;re an experienced developer or just getting started, join us in building a world where knowledge is freely shared, and everyone has the opportunity to contribute!
+</p>
+
+
       <div className="flex flex-wrap gap-4">
         <Link 
           href="/projects" 
           className="px-6 py-3 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-all duration-300 hover:shadow-lg focus:ring-2 focus:ring-purple-300 focus:outline-none"
         >
-          Explore our club
+          Explore OSPC
         </Link>
         <Link 
           href="/events" 
