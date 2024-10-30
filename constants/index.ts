@@ -15,28 +15,7 @@ export const Socials = [
   ];
 
 
-  export const NavLinks = [
-    {
-      name: "/",
-      icon: RxHome,
-      link: "/",
-    },
-    {
-      name: "/my-skills",
-      icon: RxPerson,
-      link: "/About-us",
-    },
-    {
-      name: "/my-projects",
-      icon: RxDashboard,
-      link: "/our-events",
-    },
-    {
-      name: "/contact-me",
-      icon: RxClipboard,
-      link: "/contact-me",
-    },
-  ];
+  
 
   export const Projects = [
     {

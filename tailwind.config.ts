@@ -12,6 +12,22 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      nimation: {
+          'gradient': 'gradient 3s ease infinite',
+          'twinkle': 'twinkle 2s ease-in-out infinite',
+        },
+        keyframes: {
+          gradient: {
+            '0%, 100%': {
+              'background-size': '200% 200%',
+              'background-position': 'left center'
+            },
+            '50%': {
+              'background-size': '200% 200%',
+              'background-position': 'right center'
+            },
+          },
+        },
     },
   },
   plugins: [],

@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 
 const OpenCards = () => {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const handleCardClick = (index: any) => {
+  const handleCardClick = (index: number) => {
     setExpandedIndex(index === expandedIndex ? -1 : index);
   };
 
@@ -32,7 +32,7 @@ const OpenCards = () => {
         {Projects.map((project, index) => (
           <motion.div
             key={project.name}
-            className={`cursor-pointer h-[500px] bg-cover bg-center rounded-[20px]`}
+            className="cursor-pointer h-[500px] bg-cover bg-center rounded-[20px]"
             variants={cardVariants}
             animate={index !== expandedIndex ? "collapsed" : "expanded"}
             transition={{ duration: 0.5 }}

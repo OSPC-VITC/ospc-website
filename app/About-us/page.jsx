@@ -1,32 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React  from "react";
 import { motion, useAnimation } from "framer-motion";
 
 
 const AboutMe = () => {
-  const [isClicked, setIsClicked] = useState(false);
 
   const textControls = useAnimation();
   const imageControls = useAnimation();
   const slideTextControls = useAnimation();
 
   const handleClick = () => {
-    setIsClicked(true);
     imageControls.start({ scale: 1.4, x: "30%" });
     textControls.start({ x: "-190%" });
     slideTextControls.start({ scale: 1.2, x: "-60%" });
   };
 
-  const handleBackClick = () => {
-    const timeout = setTimeout(() => {
-      setIsClicked(false);
-    }, 1350);
 
-    imageControls.start({ scale: 1, x: "0%" });
-    textControls.start({ x: "0%" });
-    slideTextControls.start({ scale: 1, x: "190%" });
-  };
   return (
     <>
       <motion.div
