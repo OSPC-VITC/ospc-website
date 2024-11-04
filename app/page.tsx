@@ -153,8 +153,8 @@ const AboutSection = () => (
         The Open Source Programming Club (OSPC) at VIT is a student-driven initiative aimed at fostering a culture of open-source development. Our mission is to empower members with practical skills, community-driven projects, and insights into collaborative software development.
       </p>
       <p className="mb-8 text-lg leading-relaxed">
-  We believe in the power of open-source to bring about positive change and innovation. Whether you&apos;re an experienced developer or just getting started, join us in building a world where knowledge is freely shared, and everyone has the opportunity to contribute!
-</p>
+        We believe in the power of open-source to bring about positive change and innovation. Whether you&apos;re an experienced developer or just getting started, join us in building a world where knowledge is freely shared, and everyone has the opportunity to contribute!
+    </p>
 
 
       <div className="flex flex-wrap gap-4">
