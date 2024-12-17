@@ -12,6 +12,13 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: [
+          '"SpaceMono.ttf"',
+          'Roboto',
+          'sans-serif',
+        ],
+      },
       nimation: {
           'gradient': 'gradient 3s ease infinite',
           'twinkle': 'twinkle 2s ease-in-out infinite',

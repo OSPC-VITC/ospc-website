@@ -15,7 +15,6 @@ const Navbar = () => {
     { name: "Leads", href: "/leads" },
     { name: "Leaderboard", href: "/leaderboard" },
     { name: "Events", href: "/events" },
-    { name: "Contact", href: "/contact" }
   ];
 
   // Control navbar visibility based on scroll

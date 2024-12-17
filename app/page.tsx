@@ -13,30 +13,6 @@ const INITIAL_BACKGROUND_POSITION = 20;
 
 // Image data with descriptive alt texts
 const IMAGES = {
-  horse: { 
-    src: "/horse.png", 
-    width: 300, 
-    height: 300,
-    alt: "Decorative horse silhouette" 
-  },
-  cliff: { 
-    src: "/cliff.webp", 
-    width: 480, 
-    height: 800,
-    alt: "Mountain cliff landscape" 
-  },
-  trees: { 
-    src: "/trees.webp", 
-    width: 2000, 
-    height: 2000,
-    alt: "Forest tree silhouettes" 
-  },
-  stars: { 
-    src: "/stars.png", 
-    width: 300, 
-    height: 300,
-    alt: "Twinkling stars pattern" 
-  },
   mainBg: { 
     src: "/main-bg.webp",
     alt: "Abstract background pattern" 
@@ -52,14 +28,14 @@ const fadeInUp = {
 interface HeroSectionProps {
   scrollY: number;
 }
-const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) =>(  
+const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.8 }}
     className="relative h-screen flex items-center"
   >
-    <div 
+    <div
       className="absolute inset-0 bg-cover bg-center transition-transform duration-300"
       style={{
         backgroundImage: `url(${IMAGES.mainBg.src})`,
@@ -68,15 +44,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) =>(
       }}
     >
       {/* Overlay */}
-      <div 
-        className="absolute inset-0 bg-black bg-opacity-55" 
+      <div
+        className="absolute inset-0 bg-black bg-opacity-55"
         style={{
-          backdropFilter: 'blur(4px)' 
+          backdropFilter: "blur(4px)",
         }}
       />
     </div>
-    
-    <motion.div 
+
+    <motion.div
       variants={fadeInUp}
       initial="hidden"
       animate="visible"
@@ -84,9 +60,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) =>(
       className="relative px-6 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-10 max-w-[750px]"
     >
       <h1 className="text-3xl md:text-[45px] text-white font-semibold leading-tight">
-        OPSC VIT, Chennai was created to spread awareness of 
+        OPSC VIT, Chennai was created to spread awareness of{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500 animate-gradient">
-          {" "}Free and Open Source Software (FOSS).{" "}
+          {" "}
+          Free and Open Source Software (FOSS).{" "}
         </span>
       </h1>
     </motion.div>
@@ -95,44 +72,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) =>(
 
 const DecorativeImages = () => (
   <>
-    <motion.div 
+    <motion.div
       className="absolute top-0 right-0 z-30"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
-      <Image
-        {...IMAGES.cliff}
-        className="transform duration-300"
-        priority
-      />
-      <Image
-        {...IMAGES.horse}
-        className="absolute right-55 top-40 duration-300"
-        priority
-      />
-    </motion.div>
-
-    <div className="absolute bottom-0 z-5 w-full">
-      <Image
-        {...IMAGES.trees}
-        className="w-full h-auto object-cover"
-        priority
-      />
-    </div>
+      transition={{ duration: 4.0 }}
+    ></motion.div>
 
     <motion.div
       initial={{ rotate: -10, opacity: 0 }}
       animate={{ rotate: 0, opacity: 1 }}
-      transition={{ delay: 0.6, duration: 0.8 }}
+      transition={{ delay: 0.6, duration: 4.0}}
       className="absolute top-0 left-0 z-10"
-    >
-      <Image
-        {...IMAGES.stars}
-        className="animate-twinkle"
-        priority
-      />
-    </motion.div>
+    ></motion.div>
   </>
 );
 
@@ -154,18 +106,17 @@ const AboutSection = () => (
       </p>
       <p className="mb-8 text-lg leading-relaxed">
         We believe in the power of open-source to bring about positive change and innovation. Whether you&apos;re an experienced developer or just getting started, join us in building a world where knowledge is freely shared, and everyone has the opportunity to contribute!
-    </p>
-
+      </p>
 
       <div className="flex flex-wrap gap-4">
-        <Link 
-          href="/projects" 
+        <Link
+          href="/projects"
           className="px-6 py-3 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-all duration-300 hover:shadow-lg focus:ring-2 focus:ring-purple-300 focus:outline-none"
         >
           Explore OSPC
         </Link>
-        <Link 
-          href="/events" 
+        <Link
+          href="/events"
           className="px-6 py-3 border-2 border-purple-500 text-purple-500 rounded-lg hover:bg-purple-50 transition-all duration-300 hover:shadow-lg focus:ring-2 focus:ring-purple-300 focus:outline-none"
         >
           Upcoming Events
@@ -175,22 +126,43 @@ const AboutSection = () => (
   </motion.section>
 );
 
-const LoadingSpinner = () => (
-  <div className="h-screen w-screen flex items-center justify-center bg-dark-800">
-    <div className="animate-spin rounded-full h-16 w-16 border-4 border-purple-500 border-t-transparent" />
-  </div>
-);
+const EntryAnimation = ({ onComplete }: { onComplete: () => void }) => {
+  return (
+    <motion.div
+      className="fixed inset-0 flex items-center justify-center bg-dark-800 z-50"
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 0 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+      onAnimationComplete={onComplete}
+    >
+      <div className="text-center">
+        <h1 className="text-4xl md:text-6xl text-white font-bold mb-4">
+          Welcome to OPSC
+        </h1>
+        <p className="text-lg md:text-2xl text-gray-300">
+          Empowering Open-Source at VIT, Chennai
+        </p>
+      </div>
+    </motion.div>
+  );
+};
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(true);
   const scrollY = useThrottledScroll();
 
   useEffect(() => {
-    setMounted(true);
+    const hasVisited = localStorage.getItem("hasVisited");
+    if (!hasVisited) {
+      setShowAnimation(true);
+      localStorage.setItem("hasVisited", "true");
+    } else {
+      setShowAnimation(false);
+    }
   }, []);
 
-  if (!mounted) {
-    return <LoadingSpinner />;
+  if (showAnimation) {
+    return <EntryAnimation onComplete={() => setShowAnimation(false)} />;
   }
 
   return (
