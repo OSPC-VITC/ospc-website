@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 const Footer = () => {
   return (
     <footer className="bg-black-900 text-white py-10">
-      <section className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+      <section className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
 
         <div>
           <h3 className="text-lg font-semibold mb-4 text-[#a655f8]" >Important Links</h3>
@@ -74,9 +74,7 @@ const Footer = () => {
           <ul className="space-y-2">
             <li>
               <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
                 className="flex items-center gap-2 hover:text-yellow-500 transition-colors"
               >
                 <i className="fab fa-facebook-f text-[#a655f8]"></i> Facebook
@@ -84,9 +82,7 @@ const Footer = () => {
             </li>
             <li>
               <a 
-                href="https://www.instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#"
                 className="flex items-center gap-2 hover:text-yellow-500 transition-colors"
               >
                 <i className="fab fa-instagram text-[#a655f8]"></i> Instagram
@@ -94,9 +90,7 @@ const Footer = () => {
             </li>
             <li>
               <a 
-                href="https://www.linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#"
                 className="flex items-center gap-2 hover:text-yellow-500 transition-colors"
               >
                 <i className="fab fa-linkedin-in text-[#a655f8]"></i> LinkedIn
@@ -104,9 +98,7 @@ const Footer = () => {
             </li>
             <li>
               <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
                 className="flex items-center gap-2 hover:text-yellow-500 transition-colors"
               >
                 <i className="fab fa-github text-[#a655f8]"></i> Github
