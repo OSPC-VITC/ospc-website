@@ -79,7 +79,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-yellow-500 transition-colors"
               >
-                <i className="fab fa-facebook-f"></i> Facebook
+                <i className="fab fa-facebook-f text-[#a655f8]"></i> Facebook
               </a>
             </li>
             <li>
@@ -89,7 +89,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-yellow-500 transition-colors"
               >
-                <i className="fab fa-instagram"></i> Instagram
+                <i className="fab fa-instagram text-[#a655f8]"></i> Instagram
               </a>
             </li>
             <li>
@@ -99,7 +99,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-yellow-500 transition-colors"
               >
-                <i className="fab fa-linkedin-in"></i> LinkedIn
+                <i className="fab fa-linkedin-in text-[#a655f8]"></i> LinkedIn
               </a>
             </li>
             <li>
@@ -109,7 +109,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-yellow-500 transition-colors"
               >
-                <i className="fab fa-github"></i> Github
+                <i className="fab fa-github text-[#a655f8]"></i> Github
               </a>
             </li>
           </ul>
@@ -118,7 +118,7 @@ const Footer = () => {
       </section>
 
       <div className="border-t border-gray-700 mt-10 pt-4">
-        <p className="text-center text-sm">
+        <p className="text-center text-sm text-[#a655f8]">
           © {new Date().getFullYear()} Open Source Programming Club (OPSC) - VIT Chennai. All Rights Reserved.
         </p>
       </div>
