@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 
 export const metadata: Metadata = {
@@ -39,8 +40,9 @@ export default function RootLayout({
       <main className="bg-black w-screen h-screen overflow-x-hidden">
       <Navbar/>
       <Navigation />
-
+      
         {children}
+      <Footer/>
       </main> 
       </body>
     </html>
