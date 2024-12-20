@@ -1,6 +1,6 @@
 "use client";
 import 'tailwindcss/tailwind.css';
-import "../globals.css";
+import "../styles/globals.css";
 import React from "react";
 import Presidents from '../../components/Presidents';
 import Leads from '../../components/Leads';
@@ -24,6 +24,9 @@ export default function Page() {
           <Leads />
         </section>
       </main>
+      <footer className="mt-12 py-4 text-center text-sm text-gray-400">
+        &copy; {new Date().getFullYear()} Open Source Programming Club. All Rights Reserved.
+      </footer>
     </div>
   );
 };
