@@ -1,25 +1,26 @@
+// Presidents Data
 const presidents = [
   {
     name: "Gokulnath",
     designation: "President",
-    image: "path/to/image",
+    image: "https://via.placeholder.com/150",
     socialHandles: {
-      instagram: "",
-      linkedin: "",
-      x: "",
-      github: ""
-    }
+      instagram: "#",
+      linkedin: "#",
+      x: "#",
+      github: "#",
+    },
   },
   {
     name: "Pranav",
     designation: "Vice President",
-    image: "path/to/image",
+    image: "https://via.placeholder.com/150",
     socialHandles: {
-      instagram: "",
-      linkedin: "",
-      x: "",
-      github: ""
-    }
+      instagram: "#",
+      linkedin: "#",
+      x: "#",
+      github: "#",
+    },
   },
 ];
 
