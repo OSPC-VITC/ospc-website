@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        * {
+            line-height: 150%;
+            color: white;
+            text-decoration: none;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+                         'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-image: url("Background.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        header, footer {
+            width: 100%;
+            background-color: black;
+            text-align: center;
+            position: relative;
+        }
+
+        header {
+            top: 0;
+            padding: 1vw 0;
+        }
+
+        footer {
+            bottom: 0;
+            padding: 0.5vw 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            margin: 0 1vw;
+            font-size: 1em;
+        }
+
+        h1 {
+            text-align: right;
+            margin: 6vw 5vw 0 0;
+            font-size: 4em;
+        }
+
+        h2 {
+            text-align: left;
+            margin: 5vw 0 0 4vw;
+            font-size: 3em;
+        }
+
+        .about, .whatwedo {
+            width: auto;
+            font-size: 1em;
+            text-align: justify;
+            padding: 2vw;
+            margin: 1vw 5vw 5vw 5vw;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .about img, .whatwedo img {
+            width: 40%;
+            height: auto;
+            margin: 0 2vw;
+        }
+
+        .about img {
+            order: 0;
+        }
+
+        .whatwedo img {
+            order: 1;
+        }
+
+        button {
+            background-color: black;
+            border: none;
+            padding: 1vw 2vw;
+            margin: 4px 2px;
+            font-size: 1.1em;
+            cursor: pointer;
+            color: white;
+        }
+
+        .content {
+            margin-bottom: 6vw;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div><button onclick="window.location.href=''">OSPC</button></div>
+            <div>
+                <a href="">About</a>
+                <a href="">Our Team</a>
+                <a href="">Leaderboard</a>
+                <a href="">Events</a>
+                <a href="">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content" style="margin-top: 5vw;">
+        <h1>About</h1>
+        <div class="about">
+            <img src="logo.png" alt="OSPC Logo">
+            <p>
+                The <span style="color: rgb(185, 219, 255)">Open Source Programming Club (OSPC)</span> 
+                of VIT Chennai is one of the oldest club at Vellore Institute of Technology, Chennai. 
+                Established with a mission to foster a culture of innovation and collaboration, the 
+                club empowers students to explore, contribute to, and create impactful open-source 
+                projects. At OSPC, we are also dedicated to spreading awareness about Free and Open 
+                Source Software (FOSS), encouraging a community-driven approach to technology that 
+                emphasizes accessibility, transparency, and collaboration. One of our notable 
+                contributions is <a href="https://vitchennaievents.com/conf1/" 
+                style="text-decoration: underline;">vitchennaievents.com</a>, a dynamic platform 
+                developed by OSPC to manage and showcase the events happening across VIT Chennai.
+            </p>
+        </div>
+
+        <h2 style="margin-left: 5vw; margin-top: 8vw;">What we do at OSPC</h2>
+        <div class="whatwedo">
+            <p style="text-wrap: nowrap;">
+                1. We organize workshops, hackathons, and seminars to inspire learning and innovation.<br><br>
+                2. We work on impactful projects and cutting-edge research across various fields.<br><br>
+                3. We contribute to Open Source, fostering collaboration and community growth.
+                <br><br>
+                4. We build a platform for skill development and idea exchange.
+            </p>
+            <img src="WhatWeDoAtOSPC.png" alt="What we do at OSPC">
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 OSPC Website</p>
+    </footer>
+</body>
+</html>
