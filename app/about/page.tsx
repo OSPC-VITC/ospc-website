@@ -1,54 +1,9 @@
 "use client";
-
 import React from "react";
 import { motion } from "framer-motion";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import ospcLogo from "../assets/4d65cf8ce6b53faae1a02aaa100cd4ad.png";
-import codeImage from "../assets/351e842a2504756bef8fcb6bc1307ff5.jpg";
-import pheniox from "../assets/phoenix-irish-whiskey-logo-s0le9avnj0faa0uu.gif";
 import Image from "next/image";
 
 function About() {
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
-
-  const particlesOptions = {
-    background: {
-      color: { value: "transparent" },
-    },
-    particles: {
-      color: {
-        value: "#ffffff",
-      },
-      links: {
-        color: "#ffffff",
-        distance: 150,
-        enable: true,
-        opacity: 0.2,
-        width: 0.8,
-      },
-      move: {
-        enable: true,
-        speed: 1,
-        direction: "none",
-        random: true,
-        straight: false,
-        outModes: "out",
-      },
-      number: {
-        density: { enable: true, area: 800 },
-        value: 50,
-      },
-      opacity: {
-        value: 0.4,
-      },
-      size: {
-        value: { min: 1, max: 3 },
-      },
-    },
-  };
 
   return (
     <div
@@ -58,58 +13,11 @@ function About() {
           "radial-gradient(50% 50% at 50% 50%, #000000 0%, #000000 100%)",
       }}
     >
-      <div className="flex-grow relative min-h-screen overflow-hidden">
-        {/* Particle Effect */}
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          options={particlesOptions}
-          className="absolute inset-0"
-        />
+      
 
         <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 py-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="flex flex-col md:flex-row items-center gap-12 mb-20"
-            >
-              <div className="w-full md:w-2/3 text-white">
-                <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-                  Get To Know Us
-                </h1>
-                <h1 className="text-2xl ">
-                  Open source is about collabrating; not competing
-                </h1>
-              </div>
-              <motion.div
-                className="w-full md:w-1/1 h-1/2"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div >
-                  <div className="absolute -inset-1 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
-                  <Image
-                    src={phenioxc}
-                    alt="Pheniox Logo"
-                    className="relative rounded-lg w-full"
-                    width={500}
-                    height={600}
-                    layout="intrinsic"
-                  />
-                </div>
             
-              </motion.div>
-            </motion.div>
-            <hr className="w-full border-gray-500 my-8" />
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -125,7 +33,7 @@ function About() {
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
                   <Image
-                    src={ospcLogo}
+                    src="/logo.webp" 
                     alt="Open Source Programming Club Logo"
                     className="relative rounded-full w-full"
                     width={500}
@@ -209,7 +117,7 @@ function About() {
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
                   <Image
-                    src={codeImage}
+                    src="/about_computer.jpg" 
                     alt="Code Editor Visual"
                     className="relative rounded-lg w-full"
                     width={500}
@@ -221,7 +129,7 @@ function About() {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 }
 
