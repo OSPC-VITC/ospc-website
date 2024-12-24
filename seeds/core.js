@@ -1,5 +1,4 @@
-// Presidents Data
-const presidents = [
+const core = [
   {
     name: "Gokulnath",
     designation: "President",
@@ -22,6 +21,17 @@ const presidents = [
       github: "#",
     },
   },
+  {
+    name: "Harini",
+    designation: "Treasurer",
+    image: "https://via.placeholder.com/150",
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+      x: "#",
+      github: "#",
+    },
+  },
 ];
 
-export default presidents;
+export default core;

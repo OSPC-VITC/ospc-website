@@ -1,10 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useThrottledScroll } from "./hooks/useThrottledScroll";
+import Terminal from "./Terminal"; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 
 // Constants
 const PARALLAX_FACTOR = 0.5;
@@ -27,8 +30,7 @@ const fadeInUp = {
 
 interface HeroSectionProps {
   scrollY: number;
-}
-const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) => (
+}const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -43,7 +45,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) => (
         transform: `translateY(${scrollY * PARALLAX_FACTOR}px)`,
       }}
     >
-      {/* Overlay */}
       <div
         className="absolute inset-0 bg-black bg-opacity-55"
         style={{
@@ -57,16 +58,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({ scrollY }) => (
       initial="hidden"
       animate="visible"
       transition={{ delay: 0.3 }}
-      className="relative px-6 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-10 max-w-[750px]"
-    >
+      className="relative px-6 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-10 max-w-[750px] mt-10">
       <h1 className="text-3xl md:text-[45px] text-white font-semibold leading-tight">
         OPSC VIT, Chennai was created to spread awareness of{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500 animate-gradient">
-          {" "}
-          Free and Open Source Software (FOSS).{" "}
+          Free and Open Source Software (FOSS)
+        </span>{" "}
+        and{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 animate-gradient">
+          Git and GitHub
         </span>
+        <FontAwesomeIcon icon={faGithub} className="text-blue-500 ml-2" />
       </h1>
     </motion.div>
+
+    <Terminal />
   </motion.div>
 );
 
@@ -126,26 +132,34 @@ const AboutSection = () => (
   </motion.section>
 );
 
+
+
+
+
 const EntryAnimation = ({ onComplete }: { onComplete: () => void }) => {
   return (
     <motion.div
-      className="fixed inset-0 flex items-center justify-center bg-dark-800 z-50"
+      className="fixed inset-0 flex items-center justify-center bg-black z-50"  
       initial={{ opacity: 1 }}
       animate={{ opacity: 0 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
+
       onAnimationComplete={onComplete}
     >
       <div className="text-center">
         <h1 className="text-4xl md:text-6xl text-white font-bold mb-4">
           Welcome to OPSC
         </h1>
-        <p className="text-lg md:text-2xl text-gray-300">
-          Empowering Open-Source at VIT, Chennai
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-2">
+          Empowering Open-Source 
+        </p>
+        <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300">
+          at VIT, Chennai
         </p>
       </div>
     </motion.div>
   );
 };
+
 
 export default function Home() {
   const [showAnimation, setShowAnimation] = useState(true);
@@ -168,6 +182,7 @@ export default function Home() {
   return (
     <main className="relative overflow-hidden bg-gradient-to-b from-dark-800 to-purple-400">
       <HeroSection scrollY={scrollY} />
+      
       <DecorativeImages />
       <AboutSection />
     </main>

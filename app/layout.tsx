@@ -1,13 +1,13 @@
+// layout.tsx
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-
 export const metadata: Metadata = {
   title: "OSPC VITC",
+  icons: "/logo.webp",
   description: "Join the Open Source Programming Club of VIT Chennai and collaborate on exciting projects!",
   keywords: "Open Source, Programming, VIT Chennai, Student Club, Collaboration",
   authors: [{ name: "OSPC VITC", url: "https://ospc-website.vercel.app" }],
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "OSPC VITC",
     images: [
       {
-        url: "https://ospc-website.vercel.app/logo.webp", // Replace with your actual image URL
+        url: "https://ospc-website.vercel.app/logo.webp",
         width: 800,
         height: 600,
       },
@@ -35,15 +35,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-      >
-      <main className="bg-black w-screen h-screen overflow-x-hidden">
-      <Navbar/>
-      <Navigation />
-      
-        {children}
-      <Footer/>
-      </main> 
+      <body>
+          <main className="bg-black w-screen h-screen overflow-x-hidden">
+            <Navbar />
+            <Navigation />
+            {children}
+            <Footer />
+          </main>
       </body>
     </html>
   );

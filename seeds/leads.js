@@ -1,23 +1,14 @@
 const leads = [
-  {
-    name: "Harini",
-    designation: "Treasurer",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
+  // web dev 
   {
     name: "Mithil",
     designation: "Web Development Lead",
     image: "https://via.placeholder.com/150",
+    department: "Web Development 🌐",
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-      x: "#",
+       
       github: "#",
     },
   },
@@ -25,142 +16,11 @@ const leads = [
     name: "Gaurav",
     designation: "Web Development Sub-Lead",
     image: "https://via.placeholder.com/150",
+    department: "Web Development 🌐",
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Hari Prasaadh",
-    designation: "AIML Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Dhilip Kumar",
-    designation: "AIML Sub-Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Vijay",
-    designation: "Event Management Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Arjun",
-    designation: "Event Management Sub-Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Venkat",
-    designation: "Social Media Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Bharani",
-    designation: "Outreach Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Krish Dagar",
-    designation: "Marketing Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Krish",
-    designation: "Public Relations Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Naveen",
-    designation: "Cyber Security Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Hansa",
-    designation: "Cyber Security Sub-Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Pranjal",
-    designation: "Cyber Security R&D Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
-      github: "#",
-    },
-  },
-  {
-    name: "Prakul",
-    designation: "AIML R&D Lead",
-    image: "https://via.placeholder.com/150",
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      x: "#",
+       
       github: "#",
     },
   },
@@ -168,10 +28,108 @@ const leads = [
     name: "Prasanth",
     designation: "Web Development R&D Lead",
     image: "https://via.placeholder.com/150",
+    department: "Web Development 🌐",
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-      x: "#",
+       
+      github: "#",
+    },
+  },
+
+// AI/ML
+  {
+    name: "Hari Prasaadh",
+    designation: "AIML Lead",
+    image: "https://via.placeholder.com/150",
+    department: "AI/ML 🧠",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
+      github: "#",
+    },
+  },
+  {
+    name: "Dhilip Kumar",
+    designation: "AIML Sub-Lead",
+    image: "https://via.placeholder.com/150",
+    department: "AI/ML 🧠",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
+      github: "#",
+    },
+  },
+  {
+    name: "Prakul",
+    designation: "AIML R&D Lead",
+    image: "https://via.placeholder.com/150",
+    department: "AI/ML 🧠",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
+      github: "#",
+    },
+  },
+
+//Cyber Security
+  {
+    name: "Naveen",
+    designation: "Cyber Security Lead",
+    image: "https://via.placeholder.com/150",
+    department: "Cyber Security 🛡️",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
+      github: "#",
+    },
+  },
+  {
+    name: "Hansa",
+    designation: "Cyber Security Sub-Lead",
+    image: "https://via.placeholder.com/150",
+    department: "Cyber Security 🛡️",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
+      github: "#",
+    },
+  },
+  {
+    name: "Pranjal",
+    designation: "Cyber Security R&D Lead",
+    image: "https://via.placeholder.com/150",
+    department: "Cyber Security 🛡️",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
+      github: "#",
+    },
+  },
+  
+  //Robotics & IoT
+  {
+    name: "Kishore",
+    designation: "Robotics & IoT Lead",
+    image: "https://via.placeholder.com/150",
+    department: "Robotics & IoT 🤖",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
       github: "#",
     },
   },
@@ -179,21 +137,69 @@ const leads = [
     name: "Ashwin",
     designation: "Robotics & IoT R&D Lead",
     image: "https://via.placeholder.com/150",
+    department: "Robotics & IoT 🤖",
+
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-      x: "#",
+       
+      github: "#",
+    },
+  },
+  
+
+  //Event Management
+  {
+    name: "Vijay",
+    designation: "Event Management Lead",
+    image: "https://via.placeholder.com/150",
+    department: "Event Management 🗓️",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
       github: "#",
     },
   },
   {
-    name: "Kishore",
-    designation: "Robotics & IoT Lead",
+    name: "Arjun",
+    designation: "Event Management Sub-Lead",
     image: "https://via.placeholder.com/150",
+    department: "Event Management 🗓️",
+
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-      x: "#",
+       
+      github: "#",
+    },
+  },
+
+// Social Media and Content Creation
+  {
+    name: "Venkat",
+    designation: "Social Media Lead",
+    image: "https://via.placeholder.com/150",
+    department: "Social Media and Content Creation 🖼️",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
+      github: "#",
+    },
+  },
+  {
+    name: "Bharani",
+    designation: "Outreach Lead",
+    image: "https://via.placeholder.com/150",
+    department: "Social Media and Content Creation 🖼️",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+       
       github: "#",
     },
   },
@@ -201,10 +207,12 @@ const leads = [
     name: "Ritvic",
     designation: "Design Lead",
     image: "https://via.placeholder.com/150",
+    department: "Social Media and Content Creation 🖼️",
+
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-      x: "#",
+       
       github: "#",
     },
   },
@@ -212,10 +220,12 @@ const leads = [
     name: "Krish Dagar",
     designation: "Content Lead",
     image: "https://via.placeholder.com/150",
+    department: "Social Media and Content Creation 🖼️",
+
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-      x: "#",
+       
       github: "#",
     },
   },
