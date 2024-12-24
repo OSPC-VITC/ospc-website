@@ -2,7 +2,7 @@ const core = [
   {
     name: "Gokulnath",
     designation: "President",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/Gokulnath.jpg",
     socialHandles: {
       instagram: "#",
       linkedin: "#",
@@ -13,7 +13,7 @@ const core = [
   {
     name: "Pranav",
     designation: "Vice President",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/Prannavakhanth.jpg",
     socialHandles: {
       instagram: "#",
       linkedin: "#",
@@ -24,7 +24,7 @@ const core = [
   {
     name: "Harini",
     designation: "Treasurer",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/Harini.jpg",
     socialHandles: {
       instagram: "#",
       linkedin: "#",

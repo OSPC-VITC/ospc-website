@@ -1,14 +1,14 @@
-import OpenCards from "../../components/openCards";
 import React from "react";
 
 const Page = () => {
   return (
     <div
       className="bg-center bg-cover w-screen h-screen flex items-center justify-center"
-      style={{ backgroundImage: "url(/SnowMoon.jpg)" }}
     >
-      <div className="mt-8">
-        <OpenCards />
+      <div className="mt-8 text-center">
+        <h1 className="text-4xl font-bold text-white drop-shadow-lg">
+          Upcoming Events
+        </h1>
       </div>
     </div>
   );

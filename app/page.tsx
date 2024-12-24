@@ -60,7 +60,7 @@ interface HeroSectionProps {
       transition={{ delay: 0.3 }}
       className="relative px-6 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-10 max-w-[750px] mt-10">
       <h1 className="text-3xl md:text-[45px] text-white font-semibold leading-tight">
-        OPSC VIT, Chennai was created to spread awareness of{" "}
+        OSPC VIT, Chennai was created to spread awareness of{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500 animate-gradient">
           Free and Open Source Software (FOSS)
         </span>{" "}

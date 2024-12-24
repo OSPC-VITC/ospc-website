@@ -1,26 +1,24 @@
 const leads = [
   // web dev 
   {
-    name: "Mithil",
+    name: "Mithil Girish",
     designation: "Web Development Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/MithilGirish.jpg",
     department: "Web Development 🌐",
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-       
       github: "#",
     },
   },
   {
-    name: "Gaurav",
+    name: "Gaurav Gali",
     designation: "Web Development Sub-Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/GauravGali.JPG",
     department: "Web Development 🌐",
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-       
       github: "#",
     },
   },
@@ -41,7 +39,7 @@ const leads = [
   {
     name: "Hari Prasaadh",
     designation: "AIML Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/Hariprasaadh.jpg",
     department: "AI/ML 🧠",
 
     socialHandles: {
@@ -67,48 +65,42 @@ const leads = [
   {
     name: "Prakul",
     designation: "AIML R&D Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/Prakul.jpg",
     department: "AI/ML 🧠",
-
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-       
       github: "#",
     },
   },
 
 //Cyber Security
-  {
-    name: "Naveen",
-    designation: "Cyber Security Lead",
-    image: "https://via.placeholder.com/150",
-    department: "Cyber Security 🛡️",
-
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-       
-      github: "#",
-    },
+{
+  name: "Naveen",
+  designation: "Cyber Security Lead",
+  image: "leadsPic/Naveen.jpeg",
+  department: "Cyber Security 🛡️",
+  socialHandles: {
+    instagram: "#",
+    linkedin: "#",
+    github: "#",
   },
-  {
-    name: "Hansa",
-    designation: "Cyber Security Sub-Lead",
-    image: "https://via.placeholder.com/150",
-    department: "Cyber Security 🛡️",
-
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-       
-      github: "#",
-    },
+},
+{
+  name: "Hansa",
+  designation: "Cyber Security Sub-Lead",
+  image: "leadsPic/HansaLeo.jpg",
+  department: "Cyber Security 🛡️",
+  socialHandles: {
+    instagram: "#",
+    linkedin: "#",
+    github: "#",
   },
+},
   {
     name: "Pranjal",
     designation: "Cyber Security R&D Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/PranjalMitra.jpg",
     department: "Cyber Security 🛡️",
 
     socialHandles: {
@@ -123,26 +115,22 @@ const leads = [
   {
     name: "Kishore",
     designation: "Robotics & IoT Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/KISHOREPRIYAN.jpg",
     department: "Robotics & IoT 🤖",
-
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-       
       github: "#",
     },
   },
   {
     name: "Ashwin",
     designation: "Robotics & IoT R&D Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/Ashwin.jpg",
     department: "Robotics & IoT 🤖",
-
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-       
       github: "#",
     },
   },
@@ -152,48 +140,42 @@ const leads = [
   {
     name: "Vijay",
     designation: "Event Management Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/Vijay.jpg",
     department: "Event Management 🗓️",
-
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-       
       github: "#",
     },
   },
   {
     name: "Arjun",
     designation: "Event Management Sub-Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/ArjunMahalingam.jpg",
     department: "Event Management 🗓️",
-
     socialHandles: {
       instagram: "#",
       linkedin: "#",
-       
       github: "#",
     },
   },
 
 // Social Media and Content Creation
-  {
-    name: "Venkat",
-    designation: "Social Media Lead",
-    image: "https://via.placeholder.com/150",
-    department: "Social Media and Content Creation 🖼️",
-
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-       
-      github: "#",
-    },
+{
+  name: "Venkat",
+  designation: "Social Media Lead",
+  image: "leadsPic/venkatakrishnan.jpeg",
+  department: "Social Media and Content Creation 🖼️",
+  socialHandles: {
+    instagram: "#",
+    linkedin: "#",
+    github: "#",
   },
+},
   {
-    name: "Bharani",
+    name: "Barani Kumar",
     designation: "Outreach Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/BaraniKumar.jpg",
     department: "Social Media and Content Creation 🖼️",
 
     socialHandles: {
@@ -219,7 +201,7 @@ const leads = [
   {
     name: "Krish Dagar",
     designation: "Content Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/KrishDagar.jpg",
     department: "Social Media and Content Creation 🖼️",
 
     socialHandles: {
