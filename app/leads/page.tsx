@@ -1,6 +1,4 @@
 "use client";
-import "tailwindcss/tailwind.css";
-import "../globals.css";
 import React, { memo } from "react";
 import ProfileCard from "../../components/ProfileCard";
 import leads from "../../seeds/leads";
