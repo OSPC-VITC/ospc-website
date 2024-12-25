@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import ParticlesComponent from "@/components/Particles";
 
 function About() {
 
@@ -16,6 +17,7 @@ function About() {
       
 
         <div className="relative z-10">
+          <ParticlesComponent id="particles-background"/>
           <div className="max-w-7xl mx-auto px-4 py-16">
             
 
