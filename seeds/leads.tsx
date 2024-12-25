@@ -25,7 +25,7 @@ const leads = [
   {
     name: "Prasanth",
     designation: "Web Development R&D Lead",
-    image: "leadspic/Prasanth.jpg",
+    image: "leadsPic/Prasanth.jpeg",
     department: "Web Development 🌐",
     socialHandles: {
       instagram: "#",
