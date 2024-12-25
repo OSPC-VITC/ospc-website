@@ -2,7 +2,7 @@
 import "tailwindcss/tailwind.css";
 import "../globals.css";
 import React, { memo } from "react";
-import ProfileCard from "./ProfileCard";
+import ProfileCard from "../../components/ProfileCard";
 import leads from "../../seeds/leads";
 import core from "../../seeds/core";
 import fac from "../../seeds/facultyCoordinator";

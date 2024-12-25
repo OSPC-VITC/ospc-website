@@ -159,13 +159,25 @@ const leads = [
       github: "#",
     },
   },
+  {
+    name: "Krish Dagar",
+    designation: "Marketing Lead",
+    image: "leadsPic/KrishDagar.jpg",
+    department: "Event Management 🗓️",
+
+    socialHandles: {
+      instagram: "#",
+      linkedin: "#",
+      github: "#",
+    },
+  },
 
 // Social Media and Content Creation
 {
   name: "Venkat",
   designation: "Social Media Lead",
   image: "leadsPic/venkatakrishnan.jpeg",
-  department: "Social Media and Content Creation 🖼️",
+  department: "Social Media 🖼️",
   socialHandles: {
     instagram: "#",
     linkedin: "#",
@@ -176,7 +188,7 @@ const leads = [
     name: "Barani Kumar",
     designation: "Outreach Lead",
     image: "leadsPic/BaraniKumar.jpg",
-    department: "Social Media and Content Creation 🖼️",
+    department: "Social Media 🖼️",
 
     socialHandles: {
       instagram: "#",
@@ -189,20 +201,7 @@ const leads = [
     name: "Ritvic",
     designation: "Design Lead",
     image: "https://via.placeholder.com/150",
-    department: "Social Media and Content Creation 🖼️",
-
-    socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-       
-      github: "#",
-    },
-  },
-  {
-    name: "Krish Dagar",
-    designation: "Content Lead",
-    image: "leadsPic/KrishDagar.jpg",
-    department: "Social Media and Content Creation 🖼️",
+    department: "Social Media 🖼️",
 
     socialHandles: {
       instagram: "#",
