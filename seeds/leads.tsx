@@ -25,7 +25,7 @@ const leads = [
   {
     name: "Prasanth",
     designation: "Web Development R&D Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadspic/Prasanth.jpg",
     department: "Web Development 🌐",
     socialHandles: {
       instagram: "#",

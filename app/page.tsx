@@ -7,6 +7,7 @@ import { useThrottledScroll } from "./hooks/useThrottledScroll";
 import Terminal from "./Terminal"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import ParticlesComponent from "@/components/Particles";
 
 
 // Constants
@@ -104,6 +105,7 @@ const AboutSection = () => (
     className="relative text-white py-16 backdrop-blur-sm"
   >
     <div className="max-w-3xl mx-auto px-6">
+      <ParticlesComponent id="particles-background" />
       <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
         About OPSC
       </h2>
