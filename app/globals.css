@@ -31,3 +31,11 @@ html {
     background-color: rgba(0, 0, 0, 0.5);
   }
   
+  #tsparticles {
+    position: fixed; /* Ensures particles stay fixed on the screen */
+    width: 100%;     /* Covers the entire width */
+    height: 100%;    /* Covers the entire height */
+    z-index: -1;     /* Moves it behind other content */
+    pointer-events: none; /* Ensures it doesn’t capture mouse/touch events */
+  }
+  

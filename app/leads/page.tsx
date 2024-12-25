@@ -6,6 +6,7 @@ import ProfileCard from "./ProfileCard";
 import leads from "../../seeds/leads";
 import core from "../../seeds/core";
 import fac from "../../seeds/facultyCoordinator";
+import ParticlesComponent from "@/components/Particles";
 
 interface Profile {
   name: string;
@@ -23,6 +24,7 @@ interface SectionProps {
   useCustomCard: boolean;
 }
 
+
 const groupByDepartment = (data: Profile[]): Record<string, Profile[]> => {
   return data.reduce((acc, profile) => {
     const department = profile.department || "General";
@@ -39,6 +41,7 @@ const Section: React.FC<SectionProps> = ({ title, data, useCustomCard }) => {
 
   return (
     <section className="mb-12">
+      <ParticlesComponent id="particles-background"/>
       <div className="container mx-auto px-6 py-8 h-auto w-auto">
         <h1 className="text-4xl font-bold text-white text-center mb-8">{title}</h1>
         {Object.entries(groupedData).map(([department, profiles]) => (
