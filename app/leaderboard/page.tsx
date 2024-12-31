@@ -41,7 +41,7 @@ const Leaderboard = () => {
       
       <div className="relative z-10 container mx-auto px-4 py-8">
         <div className="text-center mb-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
+          <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-gray-100">
             Leaderboard
           </h1>
          
