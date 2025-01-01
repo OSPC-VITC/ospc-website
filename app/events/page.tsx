@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { supabase } from '../../utils/supabaseClient';
+import { useEffect, useState } from "react";
+import { supabase } from "../../utils/supabaseClient";
 import ParticlesComponent from "@/components/Particles";
 import { motion } from "framer-motion";
 
@@ -14,22 +14,22 @@ interface Event {
 
 const EventsPage = () => {
   const [events, setEvents] = useState<Event[]>([]);
-  const [error, setError] = useState<string>('');
-  const [activeTab, setActiveTab] = useState<'upcoming' | 'past'>('upcoming');
+  const [error, setError] = useState<string>("");
+  const [activeTab, setActiveTab] = useState<"upcoming" | "past">("upcoming");
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
         const { data, error } = await supabase
-          .from('Events')
-          .select('name, date, image_url, price, venue')
-          .order('date', { ascending: true });
+          .from("Events")
+          .select("name, date, image_url, price, venue")
+          .order("date", { ascending: true });
 
         if (error) throw error;
         setEvents(data);
       } catch (err) {
-        setError('Error fetching data');
-        console.error('Error:', err);
+        setError("Error fetching data");
+        console.error("Error:", err);
       }
     };
     fetchEvents();
@@ -37,10 +37,10 @@ const EventsPage = () => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
+    return date.toLocaleDateString("en-US", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
     });
   };
 
@@ -72,7 +72,7 @@ const EventsPage = () => {
         <p className="text-gray-300 text-sm mb-2">{event.venue}</p>
         <div className="flex justify-between items-center">
           <span className="text-lg font-bold bg-gradient-to-r from-green-200 to-blue-200 bg-clip-text text-transparent">
-            {event.price === -1 ? 'Free' : `₹${event.price}`}
+            {event.price === -1 ? "Free" : `₹${event.price}`}
           </span>
           <button className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full text-white text-sm font-semibold hover:opacity-90 transition-opacity">
             Learn More
@@ -107,21 +107,21 @@ const EventsPage = () => {
         <div className="flex justify-center mb-8">
           <div className="inline-flex bg-black bg-opacity-50 p-1 rounded-full">
             <button
-              onClick={() => setActiveTab('upcoming')}
+              onClick={() => setActiveTab("upcoming")}
               className={`px-8 py-2 rounded-full transition-all ${
-                activeTab === 'upcoming' 
-                ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white' 
-                : 'text-gray-400 hover:text-white'
+                activeTab === "upcoming" 
+                ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white" 
+                : "text-gray-400 hover:text-white"
               }`}
             >
               Upcoming Events ({upcomingEvents.length})
             </button>
             <button
-              onClick={() => setActiveTab('past')}
+              onClick={() => setActiveTab("past")}
               className={`px-8 py-2 rounded-full transition-all ${
-                activeTab === 'past' 
-                ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white' 
-                : 'text-gray-400 hover:text-white'
+                activeTab === "past" 
+                ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white" 
+                : "text-gray-400 hover:text-white"
               }`}
             >
               Past Events ({pastEvents.length})
@@ -137,7 +137,7 @@ const EventsPage = () => {
           transition={{ duration: 0.3 }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activeTab === 'upcoming' ? (
+            {activeTab === "upcoming" ? (
               upcomingEvents.length === 0 ? (
                 <p className="text-center col-span-full text-xl text-gray-400">No upcoming events</p>
               ) : (

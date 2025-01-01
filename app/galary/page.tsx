@@ -6,12 +6,12 @@ import ParticlesComponent from "@/components/Particles";
 
 const GalleryPage = () => {
   const images = [
-    { id: 1, url: "https://cdn.prod.website-files.com/646caab5700fe0d1824a61b9/65170c1e01c86d489de784dd_hackathon.png"},
-    { id: 2, url: "https://cdn.prod.website-files.com/646caab5700fe0d1824a61b9/65170c1e01c86d489de784dd_hackathon.png" },
-    { id: 3, url: "https://cdn.prod.website-files.com/646caab5700fe0d1824a61b9/65170c1e01c86d489de784dd_hackathon.png" },
-    { id: 4, url: "https://cdn.prod.website-files.com/646caab5700fe0d1824a61b9/65170c1e01c86d489de784dd_hackathon.png"},
-    { id: 5, url: "https://cdn.prod.website-files.com/646caab5700fe0d1824a61b9/65170c1e01c86d489de784dd_hackathon.png" },
-    { id: 6, url: "https://cdn.prod.website-files.com/646caab5700fe0d1824a61b9/65170c1e01c86d489de784dd_hackathon.png" },
+    { id: 1, url: "https://via.placeholder.com/150" },
+    { id: 2, url: "https://via.placeholder.com/150" },
+    { id: 3, url: "https://via.placeholder.com/150" },
+    { id: 4, url: "https://via.placeholder.com/150" },
+    { id: 5, url: "https://via.placeholder.com/150" },
+    { id: 6, url: "https://via.placeholder.com/150" }
   ];
 
   return (

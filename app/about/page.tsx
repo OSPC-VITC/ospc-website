@@ -51,7 +51,7 @@ function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
-                <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                <h1 className="text-5xl font-bold mb-6 bg-clip-text text-gray-200">                 
                   About OSPC
                 </h1>
                 <p className="text-lg leading-relaxed text-gray-300">
