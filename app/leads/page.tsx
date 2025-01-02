@@ -11,7 +11,7 @@ interface Profile {
   designation?: string;
   image: string;
   socialHandles?: Record<string, string>;
-  department?: string; 
+  department?: string;
 }
 
 const MemoizedProfileCard = memo(ProfileCard);
@@ -21,7 +21,6 @@ interface SectionProps {
   data: Profile[];
   useCustomCard: boolean;
 }
-
 
 const groupByDepartment = (data: Profile[]): Record<string, Profile[]> => {
   return data.reduce((acc, profile) => {
@@ -39,12 +38,12 @@ const Section: React.FC<SectionProps> = ({ title, data, useCustomCard }) => {
 
   return (
     <section className="mb-12">
-      <ParticlesComponent id="particles-background"/>
+      <ParticlesComponent id="particles-background" />
       <div className="container mx-auto px-6 py-8 h-auto w-auto">
         <h1 className="text-4xl font-bold text-white text-center mb-8">{title}</h1>
         {Object.entries(groupedData).map(([department, profiles]) => (
           <div key={department} className="mb-8 text-center">
-            {department !== "General" && (
+            {title !== "Core" && department !== "General" && (
               <h2 className="text-3xl font-semibold text-gray-300 mb-6">{department}</h2>
             )}
             <div className="flex justify-center flex-wrap gap-8">

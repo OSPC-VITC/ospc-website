@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
@@ -21,7 +22,10 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   socialHandles = {} 
 }) => {
   return (
+
     <div className="max-w-md w-full rounded-lg border border-white bg-gradient-to-br from-gray-900 to-black shadow-lg p-6 text-center text-white transform transition-all duration-300 hover:scale-105 opacity-75 transition duration-1000 group-hover:duration-200">
+      <Link href={`/leads/${encodeURIComponent(name)}`} className="block">
+
       <div className="mb-6 flex justify-center">
         <img
           src={image || 'placeholder.png'}
@@ -65,6 +69,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           </a>
         )}
       </div>
+      </Link>
+
     </div>
   );
 };

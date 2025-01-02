@@ -15,7 +15,9 @@ const Navigation = () => {
 
   useEffect(() => {
     if (isRouting) {
-      setPrevPath(path);
+      if (path !== null) {
+        setPrevPath(path);
+      }
       const timeout = setTimeout(() => {
         setisRouting(false);
       }, 1200);

@@ -3,6 +3,8 @@ const core = [
     name: "Gokulnath N",
     designation: "President",
     image: "leadsPic/Gokulnath.jpg",
+    department: "Core 💻",
+
     socialHandles: {
       instagram: "https://www.instagram.com/_.xx.zen.gamer.xx._/",
       linkedin: "https://www.linkedin.com/in/n-gokulnath-ba8709277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -13,6 +15,8 @@ const core = [
     name: "Prannavakhanth A",
     designation: "Vice President",
     image: "leadsPic/Prannavakhanth.jpg",
+    department: "Core 💻",
+
     socialHandles: {
       instagram: "https://www.instagram.com/prnv12__",
       linkedin: "https://www.linkedin.com/in/prannavakhanth-a-59b98228a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -23,6 +27,8 @@ const core = [
     name: "Harini",
     designation: "Treasurer",
     image: "leadsPic/Harini.jpg",
+    department: "Core 💻",
+
     socialHandles: {
       instagram: "#",
       linkedin: "#",
