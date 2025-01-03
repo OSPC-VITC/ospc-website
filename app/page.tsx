@@ -82,7 +82,7 @@ const AboutSection = () => (
   >
     <div className="max-w-3xl mx-auto px-6 space-y-8">
       <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-        About OPSC
+        About OSPC
       </h2>
       <div className="space-y-4">
         <p className="text-lg leading-relaxed">
