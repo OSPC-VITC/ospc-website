@@ -6,7 +6,9 @@ import ParticlesComponent from "@/components/Particles";
 
 interface LeaderboardEntry {
   OSPC_ID: number;
-  NAME: string;
+  Name: string;
+  REG_NO: string;
+  Points: number | null;
 }
 
 const Leaderboard = () => {
@@ -15,21 +17,25 @@ const Leaderboard = () => {
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
-        const { data, error } = await supabase
-          .from('NON-FFCS members 24-25')
-          .select('NAME, OSPC_ID');
+      const { data, error } = await supabase
+        .from('Points Table 24-25')
+        .select('Name, OSPC_ID, REG_NO, Points');
 
-        if (error) {
-          setError(`Error fetching leaderboard: ${error.message}`);
-          return;
-        }
+      if (error) {
+        setError(`Error fetching leaderboard: ${error.message}`);
+        return;
+      }
 
-        if (data?.length) {
-          setLeaderboard(data);
-        } else {
-          setError('No data found.');
-        }
-      
+      if (data?.length) {
+        const sortedData = data.sort((a, b) => {
+          if (b.Points === null || b.Points === 0) return -1;
+          if (a.Points === null || a.Points === 0) return 1;
+          return (b.Points || 0) - (a.Points || 0);
+        });
+        setLeaderboard(sortedData);
+      } else {
+        setError('No data found.');
+      }
     };
 
     fetchLeaderboard();
@@ -55,12 +61,14 @@ const Leaderboard = () => {
                   <th className="px-6 py-4 bg-gray-800/50 text-left text-green-400 font-mono">#</th>
                   <th className="px-6 py-4 bg-gray-800/50 text-left text-green-400 font-mono">Member</th>
                   <th className="px-6 py-4 bg-gray-800/50 text-left text-green-400 font-mono">ID</th>
+                  <th className="px-6 py-4 bg-gray-800/50 text-left text-green-400 font-mono">Reg No</th>
+                  <th className="px-6 py-4 bg-gray-800/50 text-left text-green-400 font-mono">Points</th>
                 </tr>
               </thead>
               <tbody>
                 {error ? (
                   <tr>
-                    <td colSpan={3} className="px-6 py-4 text-red-400 font-mono text-center">
+                    <td colSpan={5} className="px-6 py-4 text-red-400 font-mono text-center">
                       {error}
                     </td>
                   </tr>
@@ -74,10 +82,16 @@ const Leaderboard = () => {
                         {String(index + 1).padStart(2, '0')}
                       </td>
                       <td className="px-6 py-4 font-mono text-gray-300">
-                        {entry.NAME}
+                        {entry.Name}
                       </td>
                       <td className="px-6 py-4 font-mono text-gray-400">
                         OSPC_{entry.OSPC_ID}
+                      </td>
+                      <td className="px-6 py-4 font-mono text-gray-300">
+                        {entry.REG_NO}
+                      </td>
+                      <td className="px-6 py-4 font-mono text-gray-300">
+                        {entry.Points !== null ? entry.Points : 0}
                       </td>
                     </tr>
                   ))
