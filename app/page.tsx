@@ -81,7 +81,7 @@ const AboutSection = () => (
     className="relative text-white py-16 backdrop-blur-sm"
   >
     <div className="max-w-3xl mx-auto px-6 space-y-8">
-      <h2 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+      <h2 className="text-4xl text-white font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
         About OSPC
       </h2>
       <div className="space-y-4">
