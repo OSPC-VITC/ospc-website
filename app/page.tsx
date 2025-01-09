@@ -120,7 +120,7 @@ const EntryAnimation = ({ onComplete }: { onComplete: () => void }) => (
   >
     <div className="text-center">
       <h1 className="text-4xl md:text-6xl text-white-200 font-bold mb-4">
-        Welcome to OPSC
+        Welcome to OSPC
       </h1>
       <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-2">
         Empowering Open-Source 
