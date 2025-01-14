@@ -63,7 +63,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-700/50 mt-10 pt-4">
           <p className="text-center text-sm text-[#a655f8]">
-            © {new Date().getFullYear()} Open Source Programming Club (OPSC) - VIT Chennai. All Rights Reserved.
+            © {new Date().getFullYear()} Open Source Programming Club (OSPC) - VIT Chennai. All Rights Reserved.
           </p>
         </div>
       </div>
