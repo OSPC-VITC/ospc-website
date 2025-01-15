@@ -1,6 +1,6 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
+import Link from "next/link";
 const Footer = () => {
   return (
     <div className="relative">
@@ -10,18 +10,26 @@ const Footer = () => {
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"/>
       <div className="relative z-10">
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-[#a655f8]">Important Links</h3>
-            <ul className="space-y-2">
-              {["Leads", "Leaderboard", "Events"].map((link) => (
-                <li key={link}>
-                  <button className="hover:text-yellow-500 transition-colors">
-                    {link}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div>
+          <h3 className="text-lg font-semibold mb-4 text-[#a655f8]">Important Links</h3>
+          <ul className="space-y-2">
+            {[
+              { name: "Leads", href: "/leads" },
+              { name: "Leaderboard", href: "/leaderboard" },
+              { name: "Events", href: "/events" },
+            ].map((link) => (
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  className="hover:text-yellow-500 transition-colors"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
 
           <div>
             <h3 className="text-lg font-semibold mb-4 text-[#a655f8]">Contact Us</h3>
