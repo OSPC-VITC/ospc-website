@@ -3,7 +3,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
+import { Analytics } from "@vercel/analytics/react"
 export const metadata: Metadata = {
   metadataBase: new URL("https://ospcvitc.club"),
   title: "OSPC VITC - Open Source Programming Club | VIT Chennai",
@@ -93,6 +93,8 @@ export default function RootLayout({
             {children}
             <Footer />
           </main>
+          <Analytics />
+
       </body>
     </html>
   );
