@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Open Source Programming Club (OSPC) - VIT Chennai
 
-## Getting Started
+Welcome to the Open Source Programming Club (OSPC) at VIT Chennai! We are a student-driven initiative dedicated to promoting awareness and adoption of Free and Open Source Software (FOSS). Our mission is to empower students with practical skills in collaborative software development, focusing on Git and GitHub expertise.
 
-First, run the development server:
+**Website**: [https://ospcvitc.club](https://ospcvitc.club)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## About Us
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+At OSPC, we believe in the power of open-source to bring about positive change and innovation. Whether you're an experienced developer or just getting started, we provide a platform for you to learn, contribute, and grow. Our activities include workshops, seminars, and community-driven projects that enhance your understanding and application of open-source principles.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contact Us
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Location**: [VIT Chennai Campus, Tamil Nadu, India](https://maps.app.goo.gl)
+- **Email**: opensourceprogrammingclub.vitc@gmail.com
 
-## Learn More
+## Follow Us
 
-To learn more about Next.js, take a look at the following resources:
+- **Instagram**: [OSPC on Instagram](https://www.instagram.com)
+- **LinkedIn**: [OSPC on LinkedIn](https://www.linkedin.com)
+- **GitHub**: [OSPC on GitHub](https://github.com)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Join us in building a world where knowledge is freely shared, and everyone has the opportunity to contribute!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*© 2025 Open Source Programming Club (OSPC) - VIT Chennai. All Rights Reserved.*
