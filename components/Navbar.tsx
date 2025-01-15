@@ -53,22 +53,28 @@ const Navbar = () => {
       } bg-transparent`}
     >
       <div className="flex flex-row gap-2 items-center">
-        {/* Logo Image */}
-        <Image
-          src="/logo.webp"
-          alt="Logo"
-          width={30}
-          height={30}
-          className="object-contain"
-        />
-        <h1 className="text-white text-[20px] font-semibold">
-          OSPC{" "}
-          <span className="text-transparent">
-            {/* Make this text transparent */}
-            VITC
-          </span>
-        </h1>
+        <Link href="/">
+          <div className="flex flex-row gap-2 items-center">
+            {/* Logo Image */}
+            <Image
+              src="/logo.webp"
+              alt="Logo"
+              width={30}
+              height={30}
+              className="object-contain"
+            />
+            <h1 className="text-white text-[20px] font-semibold">
+              OSPC{" "}
+              <span className="text-transparent">
+                {/* Make this text transparent */}
+                VITC
+              </span>
+            </h1>
+          </div>
+        </Link>
       </div>
+
+
 
       {/* Desktop Menu */}
       <nav className="hidden md:flex flex-row gap-6">
