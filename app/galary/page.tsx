@@ -9,9 +9,6 @@ const GalleryPage = () => {
     { id: 1, url: "https://via.placeholder.com/150" },
     { id: 2, url: "https://via.placeholder.com/150" },
     { id: 3, url: "https://via.placeholder.com/150" },
-    { id: 4, url: "https://via.placeholder.com/150" },
-    { id: 5, url: "https://via.placeholder.com/150" },
-    { id: 6, url: "https://via.placeholder.com/150" }
   ];
 
   return (

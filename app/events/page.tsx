@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "../../utils/supabaseClient";
 import { motion } from "framer-motion";
 import ParticlesComponent from "@/components/Particles";
-import { Calendar, MapPin, Clock, Info, ArrowLeft, Ticket } from "lucide-react";
+import { Calendar, MapPin, Clock, Info } from "lucide-react";
 
 interface Event {
   name: string;
@@ -69,17 +69,16 @@ const EventsPage = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.02 }}
+        whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.3 }}
         className="relative h-[500px] rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 shadow-xl overflow-hidden group"
+        style={{ perspective: "2000px" }}
       >
         <div
-          className={`relative w-full h-full transition-all duration-700 ${
-            isFlipped ? "rotate-y-180" : ""
-          }`}
+          className="relative w-full h-full transition-all duration-700"
           style={{
             transformStyle: "preserve-3d",
-            transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"
+            transform: isFlipped ? "rotateY(180deg)" : ""
           }}
         >
           {/* Front Side */}
@@ -110,15 +109,17 @@ const EventsPage = () => {
                 {event.venue}
               </div>
               <div className="flex justify-between items-center mt-8">
-                <span className="text-lg font-bold text-white bg-purple-500/20 backdrop-blur-sm px-6 py-2 rounded-full border border-purple-500/20">
-                  {event.price === -1 ? "Free Entry" : `₹ ${event.price}`}
-                </span>
                 <button
                   onClick={handleFlip}
-                  className="flex items-center gap-2 px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm font-semibold transition-all duration-300 backdrop-blur-sm"
+                  className="flex items-center gap-2 px-6 py-2 bg-purple-600/20 hover:bg-purple-600/30 rounded-full text-white text-sm font-semibold transition-all duration-300 backdrop-blur-sm"
                 >
                   <Info className="w-4 h-4" />
                   More Info
+                </button>
+                <button
+                  className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-2 rounded-full text-white text-lg font-semibold hover:opacity-90 transition-all duration-300"
+                >
+                  Register Now
                 </button>
               </div>
             </div>
@@ -129,21 +130,17 @@ const EventsPage = () => {
             className="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6"
             style={{
               backfaceVisibility: "hidden",
-              transform: "rotateY(180deg)"
+              transform: "rotateY(180deg)",
+              zIndex: isFlipped ? 1 : -1
             }}
           >
             <div className="flex flex-col h-full relative">
-              {/* Updated Back Button */}
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-bold text-white font-heading">Event Details</h3>
-                <button
-                  onClick={handleFlip}
-                  className="flex items-center justify-center w-10 h-10 bg-gray-800/50 hover:bg-gray-700/50 rounded-full transition-colors duration-300 group cursor-pointer"
-                >
-                  <ArrowLeft className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300" />
-                </button>
+                <h3 className="text-2xl font-bold text-white font-heading">
+                  Event Details
+                </h3>
               </div>
-              
+
               <div className="space-y-4 flex-grow">
                 <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
                   <h4 className="text-sm font-semibold text-purple-300 mb-2">Description</h4>
@@ -151,7 +148,7 @@ const EventsPage = () => {
                     Join us for an incredible event experience! More details about the event will be provided here.
                   </p>
                 </div>
-                
+
                 <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
                   <h4 className="text-sm font-semibold text-purple-300 mb-2">Schedule</h4>
                   <div className="flex items-center gap-2 text-gray-300">
@@ -161,7 +158,7 @@ const EventsPage = () => {
                     {formatTime(event.date)}
                   </div>
                 </div>
-                
+
                 <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
                   <h4 className="text-sm font-semibold text-purple-300 mb-2">Location</h4>
                   <div className="flex items-center gap-2 text-gray-300">
@@ -171,9 +168,11 @@ const EventsPage = () => {
                 </div>
               </div>
 
-              <button className="w-full py-4 mt-6 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl text-white font-semibold hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group">
-                <Ticket className="w-5 h-5 transform group-hover:rotate-12 transition-transform duration-300" />
-                Register Now
+              <button
+                onClick={handleFlip}
+                className="w-full py-4 mt-6 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl text-white font-semibold hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group"
+              >
+                Back
               </button>
             </div>
           </div>
@@ -182,8 +181,6 @@ const EventsPage = () => {
     );
   };
 
-  // Rest of the component remains the same...
-  
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center">

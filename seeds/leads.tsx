@@ -49,7 +49,7 @@ const leads = [
   {
     name: "Dhilip Kumar P",
     designation: "AIML Sub-Lead",
-    image: "https://via.placeholder.com/150",
+    image: "leadsPic/DhilipKumar.jpg",
     department: "AI/ML 🧠",
     socialHandles: {
       instagram: "https://www.instagram.com/n01c_3/",
@@ -63,9 +63,9 @@ const leads = [
     image: "leadsPic/Prakul.jpg",
     department: "AI/ML 🧠",
     socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      github: "#",
+      instagram: "",
+      linkedin: "",
+      github: "",
     },
   },
 
@@ -147,7 +147,7 @@ const leads = [
     department: "Event Management 🗓️",
     socialHandles: {
       instagram: "https://www.instagram.com/arjun_mahalingam/",
-      linkedin: "#",
+      linkedin: "",
       github: "https://github.com/Arjun50720",
     },
   },
@@ -157,9 +157,9 @@ const leads = [
     image: "leadsPic/KrishDagar.jpg",
     department: "Event Management 🗓️",
     socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      github: "#",
+      instagram: "",
+      linkedin: "",
+      github: "",
     },
   },
 
@@ -182,15 +182,26 @@ const leads = [
     department: "Social Media 🖼️",
     socialHandles: {
       instagram: "https://www.instagram.com/barani7_/",
-      linkedin: "#",
-      github: "#",
+      linkedin: "",
+      github: "",
+    },
+  },
+  {
+    name: "Ritvic Vijay",
+    designation: "Design Lead",
+    image: "leadsPic/RitvicVijay.jpeg",
+    department: "Content and Design 🧑‍🎨",
+    socialHandles: {
+      instagram: "https://www.instagram.com/r1tvic/",
+      linkedin: "",
+      github: "",
     },
   },
   {
     name: "Pavithra Uthrah",
     designation: "Design Lead",
-    image: "https://via.placeholder.com/150",
-    department: "Social Media 🖼️",
+    image: "leadsPic/PavithraUthrah.jpg",
+    department: "Content and Design 🧑‍🎨",
     socialHandles: {
       instagram: "https://www.instagram.com/uthrah.rk/",
       linkedin: "https://www.linkedin.com/in/uthrah-rk/",

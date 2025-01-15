@@ -30,9 +30,9 @@ const core = [
     department: "Core 💻",
 
     socialHandles: {
-      instagram: "#",
-      linkedin: "#",
-      github: "#",
+      instagram: "",
+      linkedin: "",
+      github: "",
     },
   },
 ];
