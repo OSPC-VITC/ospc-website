@@ -1,263 +1,272 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
-import { supabase } from "../../utils/supabaseClient";
 import { motion } from "framer-motion";
 import ParticlesComponent from "@/components/Particles";
 import { Calendar, MapPin, Clock, Info } from "lucide-react";
 
 interface Event {
-  name: string;
-  date: string;
-  image_url: string;
-  price: number;
-  venue: string;
+    name: string;
+    date: string;
+    image_url: string;
+    price: number;
+    venue: string;
 }
 
 const EventsPage = () => {
-  const [events, setEvents] = useState<Event[]>([]);
-  const [error, setError] = useState<string>("");
-  const [activeTab, setActiveTab] = useState<"upcoming" | "past">("upcoming");
+    const [events, setEvents] = useState<Event[]>([]);
+    const [error, setError] = useState<string>("");
+    const [activeTab, setActiveTab] = useState<"upcoming" | "past">("upcoming");
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const { data, error } = await supabase
-          .from("Events")
-          .select("name, date, image_url, price, venue")
-          .order("date", { ascending: true });
+    useEffect(() => {
+        const fetchEvents = async () => {
+            try {
+                const res = await fetch("/api/events");
+                const { data, error } = await res.json();
 
-        if (error) throw error;
-        setEvents(data || []);
-      } catch (err) {
-        setError("Error fetching data");
-        console.error("Error:", err);
-      }
-    };
-    fetchEvents();
-  }, []);
+                if (error) throw error;
+                setEvents(data || []);
+            } catch (err) {
+                setError("Error fetching data");
+                console.error("Error:", err);
+            }
+        };
+        fetchEvents();
+    }, []);
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    });
-  };
-
-  const formatTime = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
-
-  const isUpcoming = (date: string) => new Date(date) > new Date();
-
-  const upcomingEvents = events.filter(event => isUpcoming(event.date));
-  const pastEvents = events.filter(event => !isUpcoming(event.date));
-
-  const EventCard = ({ event }: { event: Event }) => {
-    const [isFlipped, setIsFlipped] = useState(false);
-
-    const handleFlip = () => {
-      setIsFlipped(!isFlipped);
+    const formatDate = (dateString: string) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString("en-US", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        });
     };
 
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-        className="relative h-[500px] rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 shadow-xl overflow-hidden group"
-        style={{ perspective: "2000px" }}
-      >
-        <div
-          className="relative w-full h-full transition-all duration-700"
-          style={{
-            transformStyle: "preserve-3d",
-            transform: isFlipped ? "rotateY(180deg)" : ""
-          }}
-        >
-          {/* Front Side */}
-          <div
-            className="absolute inset-0 w-full h-full"
-            style={{ backfaceVisibility: "hidden" }}
-          >
-            <div className="relative h-64 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent z-10" />
-              <img
-                src={event.image_url}
-                alt={event.name}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            <div className="relative p-6 -mt-12 z-20">
-              <div className="flex items-center gap-3 text-sm text-gray-300 mb-4 bg-gray-800/50 backdrop-blur-sm rounded-full px-4 py-2 w-fit">
-                <Calendar className="w-4 h-4 text-purple-400" />
-                {formatDate(event.date)}
-                <Clock className="w-4 h-4 text-purple-400" />
-                {formatTime(event.date)}
-              </div>
-              <h2 className="text-2xl font-bold text-white mb-4 line-clamp-2 font-heading">
-                {event.name}
-              </h2>
-              <div className="flex items-center gap-2 text-gray-300 text-sm mb-4 bg-gray-800/50 backdrop-blur-sm rounded-full px-4 py-2 w-fit">
-                <MapPin className="w-4 h-4 text-purple-400" />
-                {event.venue}
-              </div>
-              <div className="flex justify-between items-center mt-8">
-                <button
-                  onClick={handleFlip}
-                  className="flex items-center gap-2 px-6 py-2 bg-purple-600/20 hover:bg-purple-600/30 rounded-full text-white text-sm font-semibold transition-all duration-300 backdrop-blur-sm"
-                >
-                  <Info className="w-4 h-4" />
-                  More Info
-                </button>
-                <button
-                  className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-2 rounded-full text-white text-lg font-semibold hover:opacity-90 transition-all duration-300"
-                >
-                  Register Now
-                </button>
-              </div>
-            </div>
-          </div>
+    const formatTime = (dateString: string) => {
+        const date = new Date(dateString);
+        return date.toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+        });
+    };
 
-          {/* Back Side */}
-          <div
-            className="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6"
-            style={{
-              backfaceVisibility: "hidden",
-              transform: "rotateY(180deg)",
-              zIndex: isFlipped ? 1 : -1
-            }}
-          >
-            <div className="flex flex-col h-full relative">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-bold text-white font-heading">
-                  Event Details
-                </h3>
-              </div>
+    const isUpcoming = (date: string) => new Date(date) > new Date();
 
-              <div className="space-y-4 flex-grow">
-                <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
-                  <h4 className="text-sm font-semibold text-purple-300 mb-2">Description</h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    Join us for an incredible event experience! More details about the event will be provided here.
-                  </p>
-                </div>
+    const upcomingEvents = events.filter((event) => isUpcoming(event.date));
+    const pastEvents = events.filter((event) => !isUpcoming(event.date));
 
-                <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
-                  <h4 className="text-sm font-semibold text-purple-300 mb-2">Schedule</h4>
-                  <div className="flex items-center gap-2 text-gray-300">
-                    <Calendar className="w-4 h-4 text-purple-400" />
-                    {formatDate(event.date)}
-                    <Clock className="w-4 h-4 ml-2 text-purple-400" />
-                    {formatTime(event.date)}
-                  </div>
-                </div>
+    const EventCard = ({ event }: { event: Event }) => {
+        const [isFlipped, setIsFlipped] = useState(false);
 
-                <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
-                  <h4 className="text-sm font-semibold text-purple-300 mb-2">Location</h4>
-                  <div className="flex items-center gap-2 text-gray-300">
-                    <MapPin className="w-4 h-4 text-purple-400" />
-                    {event.venue}
-                  </div>
-                </div>
-              </div>
+        const handleFlip = () => {
+            setIsFlipped(!isFlipped);
+        };
 
-              <button
-                onClick={handleFlip}
-                className="w-full py-4 mt-6 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl text-white font-semibold hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group"
-              >
-                Back
-              </button>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    );
-  };
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-red-500 text-xl">{error}</div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen py-12 px-6 text-white relative">
-      <ParticlesComponent id="particles-background"/>
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-5xl md:text-6xl mb-16 font-bold text-center bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent font-heading"
-      >
-        Events
-      </motion.h1>
-
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-gray-900/80 backdrop-blur-sm p-1.5 rounded-full border border-white/10">
-            <button
-              onClick={() => setActiveTab("upcoming")}
-              className={`px-8 py-2.5 rounded-full transition-all duration-300 ${
-                activeTab === "upcoming"
-                  ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
-              }`}
+        return (
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                className="relative h-[500px] rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 shadow-xl overflow-hidden group"
+                style={{ perspective: "2000px" }}
             >
-              Upcoming ({upcomingEvents.length})
-            </button>
-            <button
-              onClick={() => setActiveTab("past")}
-              className={`px-8 py-2.5 rounded-full transition-all duration-300 ${
-                activeTab === "past"
-                  ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              Past ({pastEvents.length})
-            </button>
-          </div>
-        </div>
+                <div
+                    className="relative w-full h-full transition-all duration-700"
+                    style={{
+                        transformStyle: "preserve-3d",
+                        transform: isFlipped ? "rotateY(180deg)" : "",
+                    }}
+                >
+                    {/* Front Side */}
+                    <div
+                        className="absolute inset-0 w-full h-full"
+                        style={{ backfaceVisibility: "hidden" }}
+                    >
+                        <div className="relative h-64 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent z-10" />
+                            <img
+                                src={event.image_url}
+                                alt={event.name}
+                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                            />
+                        </div>
+                        <div className="relative p-6 -mt-12 z-20">
+                            <div className="flex items-center gap-3 text-sm text-gray-300 mb-4 bg-gray-800/50 backdrop-blur-sm rounded-full px-4 py-2 w-fit">
+                                <Calendar className="w-4 h-4 text-purple-400" />
+                                {formatDate(event.date)}
+                                <Clock className="w-4 h-4 text-purple-400" />
+                                {formatTime(event.date)}
+                            </div>
+                            <h2 className="text-2xl font-bold text-white mb-4 line-clamp-2 font-heading">
+                                {event.name}
+                            </h2>
+                            <div className="flex items-center gap-2 text-gray-300 text-sm mb-4 bg-gray-800/50 backdrop-blur-sm rounded-full px-4 py-2 w-fit">
+                                <MapPin className="w-4 h-4 text-purple-400" />
+                                {event.venue}
+                            </div>
+                            <div className="flex justify-between items-center mt-8">
+                                <button
+                                    onClick={handleFlip}
+                                    className="flex items-center gap-2 px-6 py-2 bg-purple-600/20 hover:bg-purple-600/30 rounded-full text-white text-sm font-semibold transition-all duration-300 backdrop-blur-sm"
+                                >
+                                    <Info className="w-4 h-4" />
+                                    More Info
+                                </button>
+                                <button className="bg-gradient-to-r from-purple-600 to-indigo-600 px-6 py-2 rounded-full text-white text-lg font-semibold hover:opacity-90 transition-all duration-300">
+                                    Register Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {activeTab === "upcoming" ? (
-              upcomingEvents.length === 0 ? (
-                <p className="text-center col-span-full text-xl text-gray-400">
-                  No upcoming events
-                </p>
-              ) : (
-                upcomingEvents.map(event => (
-                  <EventCard key={`${event.name}-${event.date}`} event={event} />
-                ))
-              )
-            ) : pastEvents.length === 0 ? (
-              <p className="text-center col-span-full text-xl text-gray-400">
-                No past events
-              </p>
-            ) : (
-              pastEvents.map(event => (
-                <EventCard key={`${event.name}-${event.date}`} event={event} />
-              ))
-            )}
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  );
+                    {/* Back Side */}
+                    <div
+                        className="absolute inset-0 w-full h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6"
+                        style={{
+                            backfaceVisibility: "hidden",
+                            transform: "rotateY(180deg)",
+                            zIndex: isFlipped ? 1 : -1,
+                        }}
+                    >
+                        <div className="flex flex-col h-full relative">
+                            <div className="flex justify-between items-center mb-6">
+                                <h3 className="text-2xl font-bold text-white font-heading">
+                                    Event Details
+                                </h3>
+                            </div>
+
+                            <div className="space-y-4 flex-grow">
+                                <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
+                                    <h4 className="text-sm font-semibold text-purple-300 mb-2">
+                                        Description
+                                    </h4>
+                                    <p className="text-gray-300 leading-relaxed">
+                                        Join us for an incredible event
+                                        experience! More details about the event
+                                        will be provided here.
+                                    </p>
+                                </div>
+
+                                <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
+                                    <h4 className="text-sm font-semibold text-purple-300 mb-2">
+                                        Schedule
+                                    </h4>
+                                    <div className="flex items-center gap-2 text-gray-300">
+                                        <Calendar className="w-4 h-4 text-purple-400" />
+                                        {formatDate(event.date)}
+                                        <Clock className="w-4 h-4 ml-2 text-purple-400" />
+                                        {formatTime(event.date)}
+                                    </div>
+                                </div>
+
+                                <div className="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 transition-colors duration-300">
+                                    <h4 className="text-sm font-semibold text-purple-300 mb-2">
+                                        Location
+                                    </h4>
+                                    <div className="flex items-center gap-2 text-gray-300">
+                                        <MapPin className="w-4 h-4 text-purple-400" />
+                                        {event.venue}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button
+                                onClick={handleFlip}
+                                className="w-full py-4 mt-6 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl text-white font-semibold hover:opacity-90 transition-all duration-300 flex items-center justify-center gap-2 group"
+                            >
+                                Back
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </motion.div>
+        );
+    };
+
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-red-500 text-xl">{error}</div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="min-h-screen py-12 px-6 text-white relative">
+            <ParticlesComponent id="particles-background" />
+            <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-5xl md:text-6xl mb-16 font-bold text-center bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent font-heading"
+            >
+                Events
+            </motion.h1>
+
+            <div className="w-full max-w-7xl mx-auto">
+                <div className="flex justify-center mb-12">
+                    <div className="inline-flex bg-gray-900/80 backdrop-blur-sm p-1.5 rounded-full border border-white/10">
+                        <button
+                            onClick={() => setActiveTab("upcoming")}
+                            className={`px-8 py-2.5 rounded-full transition-all duration-300 ${
+                                activeTab === "upcoming"
+                                    ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg"
+                                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                            }`}
+                        >
+                            Upcoming ({upcomingEvents.length})
+                        </button>
+                        <button
+                            onClick={() => setActiveTab("past")}
+                            className={`px-8 py-2.5 rounded-full transition-all duration-300 ${
+                                activeTab === "past"
+                                    ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg"
+                                    : "text-gray-400 hover:text-white hover:bg-white/5"
+                            }`}
+                        >
+                            Past ({pastEvents.length})
+                        </button>
+                    </div>
+                </div>
+
+                <motion.div
+                    key={activeTab}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {activeTab === "upcoming" ? (
+                            upcomingEvents.length === 0 ? (
+                                <p className="text-center col-span-full text-xl text-gray-400">
+                                    No upcoming events
+                                </p>
+                            ) : (
+                                upcomingEvents.map((event) => (
+                                    <EventCard
+                                        key={`${event.name}-${event.date}`}
+                                        event={event}
+                                    />
+                                ))
+                            )
+                        ) : pastEvents.length === 0 ? (
+                            <p className="text-center col-span-full text-xl text-gray-400">
+                                No past events
+                            </p>
+                        ) : (
+                            pastEvents.map((event) => (
+                                <EventCard
+                                    key={`${event.name}-${event.date}`}
+                                    event={event}
+                                />
+                            ))
+                        )}
+                    </div>
+                </motion.div>
+            </div>
+        </div>
+    );
 };
 
 export default EventsPage;
