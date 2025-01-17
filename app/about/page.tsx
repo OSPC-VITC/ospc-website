@@ -69,7 +69,7 @@ function About() {
                     href="https://vitchennaievents.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline hover:text-yellow-500"
+                    className="text-yellow-300 hover:underline hover:text-yellow-500"
                   >
                     vitchennaievents.com
                   </a>

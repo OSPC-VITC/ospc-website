@@ -15,28 +15,25 @@ interface ProfileCardProps {
   socialHandles?: SocialHandles;
 }
 
-const ProfileCard: React.FC<ProfileCardProps> = ({ 
-  name, 
-  designation = '', 
-  image, 
-  socialHandles = {} 
+const ProfileCard: React.FC<ProfileCardProps> = ({
+  name,
+  designation = '',
+  image,
+  socialHandles = {}
 }) => {
   return (
-
     <div className="max-w-md w-full rounded-lg border border-white bg-gradient-to-br from-gray-900 to-black shadow-lg p-6 text-center text-white transform transition-all duration-300 hover:scale-105 opacity-75 transition duration-1000 group-hover:duration-200">
       <Link href={`/leads/${encodeURIComponent(name)}`} className="block">
-
-      <div className="mb-6 flex justify-center">
-        <img
-          src={image || 'placeholder.png'}
-          alt={name}
-          className="h-32 w-32 rounded-full border-4 border-gray-700 object-cover transition-all duration-300 ease-in-out transform hover:scale-110"
-        />
-      </div>
-
-      <h2 className="text-2xl font-bold mb-2">{name}</h2>
-      {designation && <p className="text-sm italic text-gray-300 mb-4">{designation}</p>}
-
+        <div className="mb-6 flex justify-center">
+          <img
+            src={image || 'placeholder.png'}
+            alt={name}
+            className="h-32 w-32 rounded-full border-4 border-gray-700 object-cover transition-all duration-300 ease-in-out transform hover:scale-110"
+          />
+        </div>
+        <h2 className="text-2xl font-bold mb-2">{name}</h2>
+        {designation && <p className="text-sm italic text-gray-300 mb-4">{designation}</p>}
+      </Link>
       <div className="mt-4 flex justify-center space-x-6 text-2xl">
         {socialHandles?.instagram && (
           <a
@@ -69,8 +66,6 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           </a>
         )}
       </div>
-      </Link>
-
     </div>
   );
 };
