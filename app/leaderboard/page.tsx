@@ -26,11 +26,13 @@ const Leaderboard = () => {
             }
 
             if (data?.length) {
-                const sortedData = data.sort((a, b) => {
-                    if (b.Points === null || b.Points === 0) return -1;
-                    if (a.Points === null || a.Points === 0) return 1;
-                    return (b.Points || 0) - (a.Points || 0);
-                });
+                const sortedData = data.sort(
+                    (a: LeaderboardEntry, b: LeaderboardEntry) => {
+                        if (b.Points === null || b.Points === 0) return -1;
+                        if (a.Points === null || a.Points === 0) return 1;
+                        return (b.Points || 0) - (a.Points || 0);
+                    }
+                );
                 setLeaderboard(sortedData);
             } else {
                 setError("No data found.");
