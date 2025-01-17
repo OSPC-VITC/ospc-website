@@ -36,12 +36,14 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
             <li> 
               <strong>Location:</strong> <br /> 
-              <a href="https://maps.app.goo.gl/gxKGvktZy1tV1j3Q9" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition-colors"> VIT Chennai Campus, Tamil Nadu, India </a>
+              <a href="https://maps.app.goo.gl/gxKGvktZy1tV1j3Q9" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition-colors"> VIT Chennai Campus, Tamil Nadu
+              , India </a>
               </li>
               <li>
                 <strong>Email:</strong> <br />
                 <a href="mailto:opensourceprogrammingclub.vitc@gmail.com" className="hover:underline hover:text-yellow-500">
-                opensourceprogrammingclub.vitc@gmail.com
+                opensourceprogrammingclub.
+                vitc@gmail.com
                 </a>
               </li>
               <li>
