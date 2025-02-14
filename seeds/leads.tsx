@@ -200,7 +200,7 @@ const leads = [
   {
     name: "Pavithra Uthrah ",
     designation: "Design Lead",
-    image: "leadsPic/PavithraUthrah.jpg",
+    image: "leadsPic/Uthrah.jpg",
     department: "Content and Design 🧑‍🎨",
     socialHandles: {
       instagram: "https://www.instagram.com/uthrah.rk/",
