@@ -198,7 +198,7 @@ const leads = [
     },
   },
   {
-    name: "Pavithra Uthrah",
+    name: "Pavithra Uthrah ",
     designation: "Design Lead",
     image: "leadsPic/PavithraUthrah.jpg",
     department: "Content and Design 🧑‍🎨",
