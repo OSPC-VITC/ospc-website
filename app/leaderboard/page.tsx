@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ParticlesComponent from "@/components/Particles";
+import { Skeleton } from "@/components/ui/skeleton"; // Import Skeleton from shadcn/ui
 
 interface LeaderboardEntry {
     OSPC_ID: number;
@@ -13,29 +14,36 @@ interface LeaderboardEntry {
 const Leaderboard = () => {
     const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([]);
     const [error, setError] = useState<string>("");
-  
+    const [loading, setLoading] = useState<boolean>(true);
+
     useEffect(() => {
         const fetchLeaderboard = async () => {
-          const res = await fetch("/api/leaderboard");
-          const {data , error} = await res.json();
-          
+            setLoading(true);
+            try {
+                const res = await fetch("/api/leaderboard");
+                const { data, error } = await res.json();
 
-            if (error) {
-                setError(`Error fetching leaderboard: ${error.message}`);
-                return;
-            }
+                if (error) {
+                    setError(`Error fetching leaderboard: ${error.message}`);
+                    return;
+                }
 
-            if (data?.length) {
-                const sortedData = data.sort(
-                    (a: LeaderboardEntry, b: LeaderboardEntry) => {
-                        if (b.Points === null || b.Points === 0) return -1;
-                        if (a.Points === null || a.Points === 0) return 1;
-                        return (b.Points || 0) - (a.Points || 0);
-                    }
-                );
-                setLeaderboard(sortedData);
-            } else {
-                setError("No data found.");
+                if (data?.length) {
+                    const sortedData = data.sort(
+                        (a: LeaderboardEntry, b: LeaderboardEntry) => {
+                            if (b.Points === null || b.Points === 0) return -1;
+                            if (a.Points === null || a.Points === 0) return 1;
+                            return (b.Points || 0) - (a.Points || 0);
+                        }
+                    );
+                    setLeaderboard(sortedData);
+                } else {
+                    setError("No data found.");
+                }
+            } catch (err) {
+                setError((err instanceof Error) ? err.message : "An error occurred while fetching the leaderboard.");
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -43,7 +51,7 @@ const Leaderboard = () => {
     }, []);
 
     return (
-        <div className="min-h-screen ">
+        <div className="min-h-screen">
             <ParticlesComponent id="particles-background" />
 
             <div className="relative z-10 container mx-auto px-4 py-8">
@@ -76,7 +84,28 @@ const Leaderboard = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {error ? (
+                                {loading ? (
+                                    // Skeleton Loader
+                                    Array.from({ length: 5 }).map((_, index) => (
+                                        <tr key={index} className="border-b border-green-500/10">
+                                            <td className="px-6 py-4">
+                                                <Skeleton className="h-4 w-6 bg-gray-700" />
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <Skeleton className="h-4 w-24 bg-gray-700" />
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <Skeleton className="h-4 w-16 bg-gray-700" />
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <Skeleton className="h-4 w-20 bg-gray-700" />
+                                            </td>
+                                            <td className="px-6 py-4">
+                                                <Skeleton className="h-4 w-12 bg-gray-700" />
+                                            </td>
+                                        </tr>
+                                    ))
+                                ) : error ? (
                                     <tr>
                                         <td
                                             colSpan={5}
@@ -92,10 +121,7 @@ const Leaderboard = () => {
                                             className="border-b border-green-500/10 hover:bg-gray-700/50 transition-colors"
                                         >
                                             <td className="px-6 py-4 font-mono text-gray-300">
-                                                {String(index + 1).padStart(
-                                                    2,
-                                                    "0"
-                                                )}
+                                                {String(index + 1).padStart(2, "0")}
                                             </td>
                                             <td className="px-6 py-4 font-mono text-gray-300">
                                                 {entry.Name}
@@ -107,9 +133,7 @@ const Leaderboard = () => {
                                                 {entry.REG_NO}
                                             </td>
                                             <td className="px-6 py-4 font-mono text-gray-300">
-                                                {entry.Points !== null
-                                                    ? entry.Points
-                                                    : 0}
+                                                {entry.Points !== null ? entry.Points : 0}
                                             </td>
                                         </tr>
                                     ))
