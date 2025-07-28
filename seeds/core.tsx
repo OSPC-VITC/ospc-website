@@ -23,7 +23,7 @@ const core = [
   },
   {
     name: "Mithil Girish",
-    designation: "Chairperson",
+    designation: "Vice-Chairperson",
     image: "leadsPic/MithilGirish.jpg",
     department: "Core 💻",
     socialHandles: {
