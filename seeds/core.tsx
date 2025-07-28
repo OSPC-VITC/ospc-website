@@ -1,22 +1,9 @@
 const core = [
   {
-    name: "Gokulnath N",
-    designation: "President",
-    image: "leadsPic/Gokulnath.jpg",
-    department: "Core 💻",
-
-    socialHandles: {
-      instagram: "https://www.instagram.com/_.xx.zen.gamer.xx._/",
-      linkedin: "https://www.linkedin.com/in/n-gokulnath-ba8709277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      github: "https://github.com/zengamer006",
-    },
-  },
-  {
     name: "Prannavakhanth A",
-    designation: "Vice President",
+    designation: "Chairperson",
     image: "leadsPic/Prannavakhanth.jpg",
     department: "Core 💻",
-
     socialHandles: {
       instagram: "https://www.instagram.com/prnv12__",
       linkedin: "https://www.linkedin.com/in/prannavakhanth-a-59b98228a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -24,15 +11,69 @@ const core = [
     },
   },
   {
-    name: "Harini",
-    designation: "Treasurer",
-    image: "leadsPic/Harini.jpg",
+    name: "Derrick",
+    designation: "Vice-Chairperson",
+    image: "leadsPic/derrick.jpg",
     department: "Core 💻",
-
     socialHandles: {
       instagram: "",
       linkedin: "",
       github: "",
+    },
+  },
+  {
+    name: "Mithil Girish",
+    designation: "Chairperson",
+    image: "leadsPic/MithilGirish.jpg",
+    department: "Core 💻",
+    socialHandles: {
+      instagram: "https://www.instagram.com/mithilgirish/",
+      linkedin: "https://www.linkedin.com/in/mithilgirish/",
+      github: "https://github.com/mithilgirish",
+    },
+  },
+  {
+    name: "Venkat",
+    designation: "Treasurer",
+    image: "leadsPic/venkatakrishnan.jpeg",
+    department: "Core 💻",
+    socialHandles: {
+      instagram: "https://www.instagram.com/venk4t.exe/",
+      linkedin: "https://www.linkedin.com/in/venkata-krishnan-4618b9292/",
+      github: "https://github.com/venkat24k",
+    },
+  },
+  {
+    name: "Pavithra Uthrah",
+    designation: "General Secretary",
+    image: "leadsPic/Uthrah.jpg",
+    department: "Core 💻",
+    socialHandles: {
+      instagram: "https://www.instagram.com/uthrah.rk/",
+      linkedin: "https://www.linkedin.com/in/uthrah-rk/",
+      github: "https://github.com/uthrahrk",
+    },
+  },
+  {
+    name: "Naveen Bharath",
+    designation: "Joint Technical Secretary",
+    image: "leadsPic/Naveen.jpeg",
+    department: "Core 💻",
+    socialHandles: {
+      instagram: "https://www.instagram.com/axolotl.was.here/",
+      linkedin: "https://www.linkedin.com/in/naveen-bharath-27569b2a9/",
+      github: "https://github.com/AxolotlHere",
+    },
+  },
+  {
+    name: "KISHORE PRIYAN S",
+    designation: "Technical Secretary",
+    image: "leadsPic/KISHOREPRIYAN.jpg",
+    department: "Core 💻",
+    socialHandles: {
+      instagram: "https://www.instagram.com/f12_haker/",
+      linkedin: "https://www.linkedin.com/in/priyankishore2006/",
+      github: "https://github.com/priyankishore2006",
     },
   },
 ];
