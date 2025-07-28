@@ -53,7 +53,7 @@ function Enquiry() {
       icon: Phone,
       title: "Contact Number",
       content: "+91 80722 12612",
-      description: "Club coordinator contact"
+      description: "Club POC: Prannavakhanth"
     },
     {
       icon: MapPin,
