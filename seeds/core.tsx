@@ -45,7 +45,7 @@ const core = [
   },
   {
     name: "Pavithra Uthrah",
-    designation: "General Secretary",
+    designation: "General Secretary (Non-Technical)",
     image: "leadsPic/Uthrah.jpg",
     department: "Core 💻",
     socialHandles: {
@@ -55,8 +55,8 @@ const core = [
     },
   },
   {
-    name: "Naveen Bharath S",
-    designation: "Technical Secretary",
+    name: "KISHOREPRIYAN",
+    designation: "General Secretary(Technical)",
     image: "leadsPic/KISHOREPRIYAN.jpg",
     department: "Core 💻",
     socialHandles: {
@@ -67,7 +67,7 @@ const core = [
   },
   {
     name: "Naveen Bharath",
-    designation: "Joint Technical Secretary",
+    designation: "Joint Secretary(Technical)",
     image: "leadsPic/Naveen.jpeg",
     department: "Core 💻",
     socialHandles: {
