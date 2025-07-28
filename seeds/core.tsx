@@ -1,6 +1,6 @@
 const core = [
   {
-    name: "Prannavakhanth A",
+    name: "Prannavakhanth",
     designation: "Chairperson",
     image: "leadsPic/Prannavakhanth.jpg",
     department: "Core 💻",
@@ -11,14 +11,14 @@ const core = [
     },
   },
   {
-    name: "Derrick",
+    name: "Derrick Richard",
     designation: "Vice-Chairperson",
     image: "leadsPic/derrick.jpg",
     department: "Core 💻",
     socialHandles: {
-      instagram: "",
-      linkedin: "",
-      github: "",
+      instagram: "https://www.instagram.com/littledrummerboi08/",
+      linkedin: "https://www.linkedin.com/in/derrick-s-richard/",
+      github: "https://github.com/DerrickUnleashed",
     },
   },
   {
@@ -33,7 +33,7 @@ const core = [
     },
   },
   {
-    name: "Venkat",
+    name: "Venkatakrishnan",
     designation: "Treasurer",
     image: "leadsPic/venkatakrishnan.jpeg",
     department: "Core 💻",
@@ -55,6 +55,17 @@ const core = [
     },
   },
   {
+    name: "Naveen Bharath S",
+    designation: "Technical Secretary",
+    image: "leadsPic/KISHOREPRIYAN.jpg",
+    department: "Core 💻",
+    socialHandles: {
+      instagram: "https://www.instagram.com/f12_haker/",
+      linkedin: "https://www.linkedin.com/in/priyankishore2006/",
+      github: "https://github.com/priyankishore2006",
+    },
+  },
+  {
     name: "Naveen Bharath",
     designation: "Joint Technical Secretary",
     image: "leadsPic/Naveen.jpeg",
@@ -65,17 +76,7 @@ const core = [
       github: "https://github.com/AxolotlHere",
     },
   },
-  {
-    name: "KISHORE PRIYAN S",
-    designation: "Technical Secretary",
-    image: "leadsPic/KISHOREPRIYAN.jpg",
-    department: "Core 💻",
-    socialHandles: {
-      instagram: "https://www.instagram.com/f12_haker/",
-      linkedin: "https://www.linkedin.com/in/priyankishore2006/",
-      github: "https://github.com/priyankishore2006",
-    },
-  },
+  
 ];
 
 export default core;
