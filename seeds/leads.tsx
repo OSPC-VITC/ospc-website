@@ -13,7 +13,7 @@ const leads = [
   },
   {
     name: "Shourya",
-    designation: "Development Co-Lead",
+    designation: "Development Lead",
     image: "leadsPic/shourya.jpg",
     department: "Development",
     socialHandles: {
@@ -37,7 +37,7 @@ const leads = [
   },
   {
     name: "Aravind",
-    designation: "AIML Co-Lead",
+    designation: "AIML Lead",
     image: "leadsPic/aravind.jpg",
     department: "AI/ML",
     socialHandles: {
@@ -61,7 +61,7 @@ const leads = [
   },
   {
     name: "Priyanka",
-    designation: "Cyber Security Co-Lead",
+    designation: "Cyber Security Lead",
     image: "leadsPic/priyanka.jpg",
     department: "Cyber Security",
     socialHandles: {
@@ -127,7 +127,7 @@ const leads = [
     },
     {
       name: "Madhav",
-      designation: "Management Sub-Lead",
+      designation: "Management Lead",
       image: "leadsPic/madhav.jpg",
       department: "Management",
       socialHandles: {
@@ -138,7 +138,7 @@ const leads = [
     },
     {
       name: "Vaibhav",
-      designation: "Management Sub-Lead",
+      designation: "Management Lead",
       image: "leadsPic/vaibhav.jpg",
       department: "Management",
       socialHandles: {
@@ -162,7 +162,7 @@ const leads = [
   },
   {
     name: "Gautham",
-    designation: "Marketing Co-Lead",
+    designation: "Marketing Lead",
     image: "leadsPic/gautham.jpg",
     department: "Marketing",
     socialHandles: {
