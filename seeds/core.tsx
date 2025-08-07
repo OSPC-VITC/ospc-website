@@ -46,7 +46,7 @@ const core = [
   {
     name: "Pavithra Uthrah",
     designation: "General Secretary (Non-Technical)",
-    image: "leadsPic/Uthrah.jpg",
+    image: "leadsPic/PavithraUthrah.jpg",
     department: "Core 💻",
     socialHandles: {
       instagram: "https://www.instagram.com/uthrah.rk/",
