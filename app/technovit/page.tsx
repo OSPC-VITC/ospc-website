@@ -23,7 +23,7 @@ const EVENTS: EventDetails[] = [
     posterSize: { height: 544, width: 384 },
     description:
       "Stranger Clues is a tech and logic-based treasure hunt accessed via a dedicated event app. Participants solve coding challenges, puzzles, and cryptic clues to progress through levels. Teams compete using reasoning, creativity, and precision to uncover the hidden treasure.",
-    whatsappUrl: null,
+    whatsappUrl: "https://chat.whatsapp.com/GhEJHYP0nW80H31wViVwf2",
     websiteUrl: null,
     registrationUrl: "https://chennaievents.vit.ac.in/technovit/",
   },
@@ -34,7 +34,7 @@ const EVENTS: EventDetails[] = [
     description:
       "A workshop followed by a contest to create stunning personal portfolio websites. Participants will learn to use and leverage AI-powered design tools or code their sites from scratch.",
     whatsappUrl: "https://chat.whatsapp.com/G9KLeDv8Pqg6FF54Z766Le?mode=wwc",
-    websiteUrl: "https://viteventhub.com",
+    websiteUrl: null,
     registrationUrl: "https://chennaievents.vit.ac.in/technovit/",
   },
   {
