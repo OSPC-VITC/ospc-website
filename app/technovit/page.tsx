@@ -18,16 +18,6 @@ type EventDetails = {
 
 const EVENTS: EventDetails[] = [
   {
-    name: "VØID: v1",
-    posterUrl: "/technovit/void-v1.jpeg",
-    posterSize: { height: 486, width: 384 },
-    description:
-      "VØID:v1 is built for the restless. The ones who refuse to just watch the future and instead choose to hack it into existence. Happening on 28th & 29th October 2025, this 24-hour national hackathon is where ideas roar louder than Wall Street, where code meets chaos, and where teams don’t just build projects, they build movements.",
-    whatsappUrl: "https://chat.whatsapp.com/Ds8sANxSoFPHwJcNkWTjNZ?mode=wwc",
-    websiteUrl: "https://voidv1.devfolio.co/overview",
-    registrationUrl: "https://voidv1.devfolio.co/overview",
-  },
-  {
     name: "Stranger Clues",
     posterUrl: "/technovit/stranger-clues.jpeg",
     posterSize: { height: 544, width: 384 },
@@ -79,7 +69,7 @@ const Page: React.FC = () => {
           </div>
 
           {/* Starting horizontal line and dot for left side */}
-          <div className="relative mt-72 hidden md:flex flex-col items-center">
+          <div className="relative mt-96 hidden md:flex flex-col items-center">
             <div className="bottom-0 absolute w-[110%] h-px bg-white" />
             <div className="absolute size-4 rounded-full bottom-[-0.5rem] right-[-0.5rem] bg-white" />
           </div>
@@ -122,7 +112,7 @@ const Page: React.FC = () => {
               );
             },
           )}
-          <div className="h-72 hidden md:block" />
+          <div className="h-[36rem] hidden md:block" />
           <br />
         </div>
       </div>
