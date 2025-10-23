@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import ParticlesComponent from "@/components/Particles";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 
 type EventDetails = {
   name: string;
+  date: string;
   posterUrl: string | null;
   posterSize: { height: number; width: number };
   description: string;
@@ -18,7 +19,19 @@ type EventDetails = {
 
 const EVENTS: EventDetails[] = [
   {
+    name: "Agentic MCP",
+    date: "27 Oct",
+    posterUrl: "/technovit/agentic-mcp.jpeg",
+    posterSize: { height: 544, width: 384 },
+    description:
+    "A hands-on workshop by OSPC × BIC, VIT Chennai, focused on creating AI systems that can think, plan, and act autonomously using the MCP framework. Participants will explore agentic AI fundamentals, understand MCP's role in autonomy, and build an intelligent agent capable of solving real-world tasks.",
+    whatsappUrl: "https://chat.whatsapp.com/CjlknyMmo6JBmJVCspVe8g?mode=wwc",
+    websiteUrl: null,
+    registrationUrl: "https://chennaievents.vit.ac.in/technovit/",
+  },
+  {
     name: "Stranger Clues",
+    date: "29 Oct",
     posterUrl: "/technovit/stranger-clues.jpeg",
     posterSize: { height: 544, width: 384 },
     description:
@@ -29,6 +42,7 @@ const EVENTS: EventDetails[] = [
   },
   {
     name: "CraftMySite",
+    date: "31 Oct",
     posterUrl: "/technovit/craft-my-site.jpeg",
     posterSize: { height: 543, width: 384 },
     description:
@@ -39,6 +53,7 @@ const EVENTS: EventDetails[] = [
   },
   {
     name: "Game Jam",
+    date: "1 Nov",
     posterUrl: "/technovit/game-jam.jpeg",
     posterSize: { height: 683, width: 384 },
     description:
@@ -50,9 +65,26 @@ const EVENTS: EventDetails[] = [
 ];
 
 const Page: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div className="min-h-dvh p-8">
       <ParticlesComponent id="particles-background" />
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 cursor-pointer"
+          onClick={() => setSelectedImage(null)}
+        >
+          <Image
+            src={selectedImage}
+            alt="Event poster"
+            width={800}
+            height={1067}
+            className="max-h-[90vh] w-auto"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
       <div className="relative container mx-auto md:px-8">
         <h1 className="text-4xl font-bold text-white text-center mb-8">
           TechnoVIT Events
@@ -77,6 +109,7 @@ const Page: React.FC = () => {
             (
               {
                 name,
+                date,
                 posterUrl,
                 posterSize,
                 description,
@@ -91,14 +124,19 @@ const Page: React.FC = () => {
                   key={name}
                   className="relative flex flex-col items-center justify-center row-span-2 p-8 md:p-12"
                 >
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black px-4 py-2 rounded-full border border-white">
+                    <p className="text-white font-semibold">{date}</p>
+                  </div>
                   <Event
                     name={name}
+                    date={date}
                     posterUrl={posterUrl}
                     posterSize={posterSize}
                     description={description}
                     whatsappUrl={whatsappUrl}
                     websiteUrl={websiteUrl}
                     registrationUrl={registrationUrl}
+                    onImageClick={setSelectedImage}
                   />
                   {/* Bottom horizontal line and dot */}
                   <div className="bottom-0 absolute w-[110%] h-px bg-white" />
@@ -122,7 +160,9 @@ const Page: React.FC = () => {
 
 export default Page;
 
-type EventProps = EventDetails;
+type EventProps = EventDetails & {
+  onImageClick: (url: string) => void;
+};
 
 const Event: React.FC<EventProps> = ({
   name,
@@ -131,6 +171,7 @@ const Event: React.FC<EventProps> = ({
   whatsappUrl,
   websiteUrl,
   registrationUrl,
+  onImageClick,
 }) => {
   return (
     <div className="flex flex-col items-center">
@@ -144,7 +185,8 @@ const Event: React.FC<EventProps> = ({
           src={posterUrl}
           width={300}
           height={400}
-          className="h-auto w-full max-w-80 mb-8"
+          className="h-auto w-full max-w-80 mb-8 cursor-pointer"
+          onClick={() => onImageClick(posterUrl)}
         />
       )}
       <p className="text-white mb-6 text-center">{description}</p>
