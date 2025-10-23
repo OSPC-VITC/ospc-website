@@ -49,11 +49,11 @@ const EVENTS: EventDetails[] = [
   },
   {
     name: "Game Jam",
-    posterUrl: null,
-    posterSize: { height: 500, width: 300 },
+    posterUrl: "/technovit/game-jam.jpeg",
+    posterSize: { height: 683, width: 384 },
     description:
       "A one-day intensive Game Jam where participants design and build games from scratch. Teams brainstorm, develop, and refine gameplay, visuals, and sound with mentor guidance. The event ends with final demos, feedback, and awards for creativity and execution.",
-    whatsappUrl: null,
+    whatsappUrl: "https://chat.whatsapp.com/LJ64zce3J78972L4b33tgS",
     websiteUrl: null,
     registrationUrl: "https://chennaievents.vit.ac.in/technovit/",
   },
