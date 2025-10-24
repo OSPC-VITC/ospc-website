@@ -1,10 +1,11 @@
+
 "use client";
 
 import React, { useState } from "react";
 import ParticlesComponent from "@/components/Particles";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type EventDetails = {
   name: string;
@@ -24,7 +25,7 @@ const EVENTS: EventDetails[] = [
     posterUrl: "/technovit/agentic-mcp.jpeg",
     posterSize: { height: 544, width: 384 },
     description:
-    "A hands-on workshop by OSPC × BIC, VIT Chennai, focused on creating AI systems that can think, plan, and act autonomously using the MCP framework. Participants will explore agentic AI fundamentals, understand MCP's role in autonomy, and build an intelligent agent capable of solving real-world tasks.",
+      "A hands-on workshop by OSPC × BIC, VIT Chennai, focused on creating AI systems that can think, plan, and act autonomously using the MCP framework. Participants will explore agentic AI fundamentals, understand MCP's role in autonomy, and build an intelligent agent capable of solving real-world tasks.",
     whatsappUrl: "https://chat.whatsapp.com/CjlknyMmo6JBmJVCspVe8g?mode=wwc",
     websiteUrl: null,
     registrationUrl: "https://chennaievents.vit.ac.in/technovit/",
@@ -44,7 +45,7 @@ const EVENTS: EventDetails[] = [
     name: "CraftMySite",
     date: "31 Oct",
     posterUrl: "/technovit/craft-my-site.jpeg",
-    posterSize: { height: 543, width: 384 },
+    posterSize: { height: 544, width: 384 },
     description:
       "A workshop followed by a contest to create stunning personal portfolio websites. Participants will learn to use and leverage AI-powered design tools or code their sites from scratch.",
     whatsappUrl: "https://chat.whatsapp.com/G9KLeDv8Pqg6FF54Z766Le?mode=wwc",
@@ -55,7 +56,7 @@ const EVENTS: EventDetails[] = [
     name: "Game Jam",
     date: "1 Nov",
     posterUrl: "/technovit/game-jam.jpeg",
-    posterSize: { height: 683, width: 384 },
+    posterSize: { height: 544, width: 384 },
     description:
       "A one-day intensive Game Jam where participants design and build games from scratch. Teams brainstorm, develop, and refine gameplay, visuals, and sound with mentor guidance. The event ends with final demos, feedback, and awards for creativity and execution.",
     whatsappUrl: "https://chat.whatsapp.com/LJ64zce3J78972L4b33tgS",
@@ -66,6 +67,47 @@ const EVENTS: EventDetails[] = [
 
 const Page: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % EVENTS.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + EVENTS.length) % EVENTS.length);
+  };
+
+  const handlePrevClick = (e: React.MouseEvent | React.PointerEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const scrollY = window.scrollY;
+    setTimeout(() => {
+      prevSlide();
+      window.scrollTo(0, scrollY);
+    }, 0);
+  };
+
+  const handleNextClick = (e: React.MouseEvent | React.PointerEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const scrollY = window.scrollY;
+    setTimeout(() => {
+      nextSlide();
+      window.scrollTo(0, scrollY);
+    }, 0);
+  };
+
+  const handleDotClick = (index: number) => (e: React.MouseEvent | React.PointerEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const scrollY = window.scrollY;
+    setTimeout(() => {
+      setCurrentIndex(index);
+      window.scrollTo(0, scrollY);
+    }, 0);
+  };
+
+  const currentEvent = EVENTS[currentIndex];
 
   return (
     <div className="min-h-dvh p-8">
@@ -89,69 +131,114 @@ const Page: React.FC = () => {
         <h1 className="text-4xl font-bold text-white text-center mb-8">
           TechnoVIT Events
         </h1>
-        <div className="grid grid-cols-[1px_1fr] md:grid-cols-[1fr_1px_1fr] gap-y-[-1px]">
-          <br />
-          {/* Vertical white line */}
-          <div className="md:col-start-2 row-start-1 row-[span_100_/_span_100] bg-white" />
 
-          {/* Starting horizontal line and dot for right side */}
-          <div className="relative flex flex-col items-center">
-            <div className="bottom-0 absolute w-[110%] h-px bg-white" />
-            <div className="absolute size-4 rounded-full bottom-[-0.5rem] left-[-0.5rem] bg-white" />
-          </div>
-
-          {/* Starting horizontal line and dot for left side */}
-          <div className="relative mt-96 hidden md:flex flex-col items-center">
-            <div className="bottom-0 absolute w-[110%] h-px bg-white" />
-            <div className="absolute size-4 rounded-full bottom-[-0.5rem] right-[-0.5rem] bg-white" />
-          </div>
-          {EVENTS.map(
-            (
-              {
-                name,
-                date,
-                posterUrl,
-                posterSize,
-                description,
-                whatsappUrl,
-                websiteUrl,
-                registrationUrl,
-              },
-              i,
-            ) => {
-              return (
-                <div
-                  key={name}
-                  className="relative flex flex-col items-center justify-center row-span-2 p-8 md:p-12"
-                >
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black px-4 py-2 rounded-full border border-white">
-                    <p className="text-white font-semibold">{date}</p>
-                  </div>
-                  <Event
-                    name={name}
-                    date={date}
-                    posterUrl={posterUrl}
-                    posterSize={posterSize}
-                    description={description}
-                    whatsappUrl={whatsappUrl}
-                    websiteUrl={websiteUrl}
-                    registrationUrl={registrationUrl}
-                    onImageClick={setSelectedImage}
-                  />
-                  {/* Bottom horizontal line and dot */}
-                  <div className="bottom-0 absolute w-[110%] h-px bg-white" />
-                  <div
-                    className={cn(
-                      "absolute size-4 rounded-full bottom-[-0.5rem] left-[-0.5rem] bg-white",
-                      i & 1 ? "right-[-0.5rem] left-auto" : "md:left-[-0.5rem]",
-                    )}
+        {/* Carousel */}
+        <div className="relative max-w-6xl mx-auto mb-12">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start">
+            {/* Poster - Top on mobile, Left on desktop */}
+            <div className="w-full md:w-auto flex-shrink-0 flex justify-center relative">
+              {currentEvent.posterUrl === null ? (
+                <div className="w-full max-w-xs md:w-80 aspect-[9/12.75] flex items-center justify-center bg-black/5 backdrop-blur-sm outline outline-white outline-[1px]">
+                  <p className="text-white text-2xl font-bold">Coming Soon!</p>
+                </div>
+              ) : (
+                <div className="w-full max-w-xs md:w-80 aspect-[9/12.75] relative">
+                  <Image
+                    alt={`${currentEvent.name} poster`}
+                    src={currentEvent.posterUrl}
+                    fill
+                    className="object-cover cursor-pointer"
+                    onClick={() => setSelectedImage(currentEvent.posterUrl)}
                   />
                 </div>
-              );
-            },
-          )}
-          <div className="h-[36rem] hidden md:block" />
-          <br />
+              )}
+            </div>
+
+            {/* Description - Bottom on mobile, Right on desktop */}
+            <div className="flex-1 flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-4 mb-4">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white">
+                    {currentEvent.name}
+                  </h2>
+                  <span className="bg-black border border-white text-white px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap">
+                    {currentEvent.date}
+                  </span>
+                </div>
+                <p className="text-white text-base md:text-lg leading-relaxed mb-6">
+                  {currentEvent.description}
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 mt-4">
+                {currentEvent.whatsappUrl && (
+                  <Button href={currentEvent.whatsappUrl}>Whatsapp</Button>
+                )}
+                {currentEvent.websiteUrl && (
+                  <Button href={currentEvent.websiteUrl}>More Info</Button>
+                )}
+                {currentEvent.registrationUrl && (
+                  <Button href={currentEvent.registrationUrl}>Register</Button>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <button
+            type="button"
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={handlePrevClick}
+            className="absolute left-[-50px] top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all duration-300 border border-white/30 z-10 hidden md:flex items-center justify-center"
+            aria-label="Previous event"
+          >
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+          </button>
+          <button
+            type="button"
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={handleNextClick}
+            className="absolute right-[-50px] top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 md:p-3 rounded-full transition-all duration-300 border border-white/30 z-10 hidden md:flex items-center justify-center"
+            aria-label="Next event"
+          >
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+          </button>
+
+          {/* Mobile Navigation Buttons */}
+          <div className="flex md:hidden justify-center gap-4 mt-8">
+            <button
+              type="button"
+              onPointerDown={handlePrevClick}
+              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 rounded-full transition-all duration-300 border border-white/30 touch-none"
+              aria-label="Previous event"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              type="button"
+              onPointerDown={handleNextClick}
+              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-2 rounded-full transition-all duration-300 border border-white/30 touch-none"
+              aria-label="Next event"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-8">
+            {EVENTS.map((_, index) => (
+              <button
+                type="button"
+                key={index}
+                onPointerDown={handleDotClick(index)}
+                className={`h-2 rounded-full transition-all duration-300 touch-none ${index === currentIndex
+                  ? "w-8 bg-white"
+                  : "w-2 bg-white/40 hover:bg-white/60"
+                  }`}
+                aria-label={`Go to event ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -159,47 +246,6 @@ const Page: React.FC = () => {
 };
 
 export default Page;
-
-type EventProps = EventDetails & {
-  onImageClick: (url: string) => void;
-};
-
-const Event: React.FC<EventProps> = ({
-  name,
-  posterUrl,
-  description,
-  whatsappUrl,
-  websiteUrl,
-  registrationUrl,
-  onImageClick,
-}) => {
-  return (
-    <div className="flex flex-col items-center">
-      {posterUrl === null ? (
-        <div className="w-full max-w-80 aspect-[9/12] flex items-center justify-center bg-black/5 backdrop-blur-sm mb-8 outline outline-white outline-[1px]">
-          <p className="text-white text-2xl font-bold">Comming Soon!</p>
-        </div>
-      ) : (
-        <Image
-          alt={`${name} poster`}
-          src={posterUrl}
-          width={300}
-          height={400}
-          className="h-auto w-full max-w-80 mb-8 cursor-pointer"
-          onClick={() => onImageClick(posterUrl)}
-        />
-      )}
-      <p className="text-white mb-6 text-center">{description}</p>
-      <div className="w-full flex flex-col md:flex-row justify-end gap-4">
-        {whatsappUrl === null || <Button href={whatsappUrl}>Whatsapp</Button>}
-        {websiteUrl === null || <Button href={websiteUrl}>More Info</Button>}
-        {registrationUrl === null || (
-          <Button href={registrationUrl}>Register</Button>
-        )}
-      </div>
-    </div>
-  );
-};
 
 type ButtonProps = { children: string; href: string };
 
